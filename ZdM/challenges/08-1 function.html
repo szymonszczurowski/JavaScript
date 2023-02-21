@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        function calculateBmi(weight, height) {
+            let result = weight / (height * height)
+
+            if (result > 18.5 && result < 24.9) {
+                console.log(`Twoje Bmi jest poprawne i wynosi: ${result}`);
+            } else {
+                console.log(`Twoje Bmi nie jest poprawne i wynosi: ${result}`);
+
+            }
+        }
+
+        calculateBmi(75, 1.75)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=scr, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function multiply(a, b, c) {
+            let result = a * b * c
+            console.log(result);
+
+        }
+
+        console.log('wynik:');
+        multiply(2, 5, 3)
+        
+        function substract(x,y){
+            return x - y
+        }
+
+        console.log('wynik odejmowania:');
+        let substractResult = substract(5, 2)
+        console.log(substractResult);
+
+        function getSomeNumber() {
+            return 69
+        }
+
+        console.log('zwracanie liczby:');
+        console.log(getSomeNumber());
+
+
+        console.log('wynik lokaty:');
+        let money = 1000;
+        let interestRate = 0.05;
+
+        function calculateInvestmentResult(money, interestRate){
+            let result = money + (money * interestRate)
+            console.log(result);
+        }
+
+        calculateInvestmentResult(money, interestRate)
+        calculateInvestmentResult(2200, 0.045)
+
+    </script>
+</body>
+
+</html>

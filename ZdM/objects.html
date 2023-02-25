@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    //grupowanie zmiennych za pomocą obiektów. Takie pudełko do przechowywania danych
+    <script>
+        // w obiekcie są WŁAŚCIWOŚCI obiektu 
+        let house = {
+            city: 'Wawa',
+            street: 'Marszałkowska',
+            streetNum: 12,
+            surfaceArea: 50,
+            height: 30
+        }
+
+        let bankAccount = {
+            name: "Karol",
+            surname: "Kowalski",
+            accountNumber: "12312412424",
+            balance: 100000
+        }
+
+        console.log(bankAccount);
+        console.log(bankAccount.balance);
+
+        bankAccount.balance = bankAccount.balance + 5555;
+        console.log(bankAccount);
+
+
+        //nowa właściwość
+        bankAccount.country = "Polska"
+        console.log(bankAccount);
+        
+    </script>
+</body>
+
+</html>

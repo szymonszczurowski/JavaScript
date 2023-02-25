@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /*
+Zadanie odnośnie String 
+1) Stwórz funkcję getUserDescription posiadającą następujące
+   parametry: name, city, country
+2) Funkcja musi zwrócić łańcuch znaków, użyj literału szablonu
+   w którym osadzisz różne wartości.
+3) Wewnątrz funkcji pobierz do zmiennych następujące dane:
+   - firstSign - pierwszy znak imienia
+   - nameLength - Ilość znaków imienia
+   - lastSign - ostatni znak imienia
+4) Zwracany łańcuch znaków ma być następujący,
+   podstaw pod nazwy zmiennych ich wartości: 
+   Użytkownik o imieniu name mieszka w mieście city,
+   w Państwie: country.
+   Pierwszy znak imienia to: firstSign, natomiast 
+   ostatni to: lastSign.
+   Imię ma nameLength znaków. 
+5) Wywołaj funkcję dwukrotnie z następującymi argumentami:
+    - Kasia, Kraków, Polska
+    - Adam, Londyn, UK
+   Pokaż zwrócony tekst w konsoli. 
+*/
+
+        const getUserDesription = (name, city, country) => {
+            const firstSign = name[0]
+            const nameLenght = name.length
+            const lastSign = name[name.length - 1]
+
+            return `Użytkownik o imineiu ${name} mieszka w mieście ${city},
+w Państiwe: ${country}.
+Pierwszy znak imienia to: ${firstSign}, natomiast
+ostatni to: ${lastSign}.
+Imię ma ${nameLenght} znaków.
+    `
+        }
+
+        const result = getUserDesription('Kasia', 'Kraków', 'Polska')
+        console.log(result);
+
+        const result2 = getUserDesription('Adam', 'Londyn', 'UK')
+        console.log(result2);
+
+        
+
+    </script>
+</body>
+
+</html>

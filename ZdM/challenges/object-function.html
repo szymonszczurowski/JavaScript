@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+    <script>
+
+        
+    /*
+    Zadanie - funkcja zwacająca obiekt:
+    1) Stwórz funkcję generateUser, która zwróci obiekt
+       użytkownika, przyjmie parametry:
+       - name
+       - email
+       - city
+       - job
+    2) Zapisz według uznania nazwy właściwości obiektu 
+       np. username albo takei same jak parametry, według
+       uznania.
+    3) Przetestuj funkcję z dowolnymi pasującymi parametrami
+       oraz pokaż wynik w konsoli. Stwórz dwóch użytkowników
+       w ten sposób.
+*/
+
+        
+        function generateUser(name, email, city, job){
+            // let value = {
+            //     name: name,
+            //     email: email,
+            //     city: city,
+            //     job: job
+            // }
+
+            // console.log(value);
+
+            return{
+                name: name,
+                email: email,
+                city: city,
+                job: job
+            }
+        }
+
+
+        // generateUser("Szymon", "szymon@gamil.com", "Gdańsk", "programmer")
+        // generateUser("Kasia", "kasia@gamil.com", "Warszawa", "Manager")
+
+        let user1 = generateUser("Szymon", "szymon@gamil.com", "Gdańsk", "programmer")
+        let user2 = generateUser("Kasia", "kasia@gamil.com", "Warszawa", "Manager")
+
+        console.log(user1);
+        console.log(user2);
+    </script>
+</body>
+</html>

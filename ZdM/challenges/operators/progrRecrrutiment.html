@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+          /*
+            Zadanie: rekrutacja pracownika
+            1) Stwórz funkcję recruitProgrammer() z parametrami:
+               email - dane kontaktowe
+               yearsExp - doświadczenie w latach
+               level - poziom kandydata np senior
+               languages - tablica języków które zna kandydat
+            2) W funkcji sprawdź następujące wymagania pracodawcy            
+               za pomocą operatorów porównania:
+               - level: mid
+               - doświadczenie powyżej 1 lat, ale mniejsze niż 6
+               - musi znać język JavaScript lub TypeScript
+                 Uwaga: wykorzystaj funkcję indexOf w tablicy,
+                 zwróci indeks elementu lub -1
+               - jeżeli powyższe warunki są spełnione napisz 
+                 w konsoli że programista z danym email jest przyjęty/a 
+                 i zwróć true. Jeśli nie spełnia warunków również
+                 pokaż odpowiednią informację, zwróc false
+               - przetestuj funkcję dla poniższych przypadków:
+                 ania@test.com, mid, 4, ["JavaScript", "Python"]
+                 adam@example.com, junior, 2, ["Java"]
+                 kasia@domena.com, senior, 7, ["JavaScript", "TypeScript"] 
+        */
+        
+
+        const recuitProgrammer = (email, level, yearsExp, languages) => {
+
+            if (level == 'mid' && (yearsExp > 1 && yearsExp < 6) && (languages.indexOf('JavaScript') >= 0 || languages.indexOf('TypeScript') >= 0)){
+                console.log('Programista jest przyjęty')
+                return true
+            } else{
+                console.log('Programista nie spłania warunków')
+                return false
+            }
+           
+        }
+
+        console.log(recuitProgrammer('ania@test.com', 'mid', 4, ["JavaScript", "Python"]));
+        console.log(recuitProgrammer('adam@example.com', 'junior', 2, ["Java"]));
+        console.log(recuitProgrammer('kasia@domena.com', 'senior', 7, ["JavaScript", "TypeScript"]));
+    </script>
+</body>
+</html>

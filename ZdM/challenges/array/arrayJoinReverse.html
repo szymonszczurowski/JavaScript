@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+          /*
+        Zadanie array join() reverse()
+        1) Stwórz tablicę z pięcioma imionami
+        2) Napisz funkcję combineNames przyjmującą tablicę imion
+           oraz znak je łączący.
+        3) Wewnątrz funkcji najpierw odwróć kolejność imion, 
+           następnie połącz je w jeden łańcuch znaków stosując
+           łączący znak pomiędzy elementami.
+        4) Zwróć wynikowy string z funkcji i pokaż go w konsoli.
+           Wywołując combineNames użyj znak |  tzw pipe którym
+           połączone będą wszystkie imiona.
+        5) Zastosuj funkcję split aby podzielić zwrócony łańuch
+           znaków z powrotem na tablicę imion, pokaż ją w konsoli.
+        */
+
+
+ let name = ['Mateusz', 'Marek', 'Lukasz', 'Jan', 'Piotr']
+function combineNames(nameArr, symbol){
+    nameArr.reverse()
+    const join = nameArr.join(symbol)
+    return join
+}
+
+let result = combineNames(name, '|')
+console.log(result);
+
+console.log(result.split('|'));
+
+</script>    
+</body>
+</html>

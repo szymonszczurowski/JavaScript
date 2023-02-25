@@ -115,7 +115,7 @@
 
 // const colors = ['red']
 // colors.unshift('blue')
-// colors.push('green') 
+// colors.push('green')
 
 // for (const i of colors) {
 //     console.log(`Mój ulubiony kolor to: ${i.charAt(0).toUpperCase() + i.slice(1)}`);
@@ -123,21 +123,98 @@
 
 // console.log('--------------------------------')
 
-const string = "Audi, Mercedes, BMW, Nissan, Dodge"
-const newString = string.split(', ')
-console.log(newString);
+// const string = "Audi, Mercedes, BMW, Nissan, Dodge"
+// const newString = string.split(', ')
+// console.log(newString);
 
-if(newString.length > 3){
-    console.log('Jest ok');
-}else{
-    console.log("Nie jest ok");
+// if(newString.length > 3){
+//     console.log('Jest ok');
+// }else{
+//     console.log("Nie jest ok");
+// }
+
+// if(newString.includes('Audi')){
+//     newString.push('Reno')
+// }else{
+//     newString.pop()
+// }
+
+// console.log(newString);
+
+// console.log('--------------------------------')
+
+// // tutaj jest przykład ze zmienną globalną
+// let score
+
+// const add = (x, y) => {
+// 	score = x + y
+
+// 	// if(score % 2 == 0){
+// 	//     fun1()
+// 	// }else{
+// 	//     fun2()
+// 	// }
+
+// 	score % 2 == 0 ? fun1() : fun2()
+// }
+
+// const fun1 = () => console.log(`Liczba ${score} jest parzysta`)
+// const fun2 = () => console.log(`Liczba ${score} jest nie parzysta`)
+
+// add(5, 6)
+
+// // tutaj jest przykład bez zmiennej blobalnej
+// console.log('-----------------');
+
+// const add2= (x, y) => {
+// 	const score = x + y
+
+// 	// if(score % 2 == 0){
+// 	//     fun1()
+// 	// }else{
+// 	//     fun2()
+// 	// }
+
+// 	score % 2 == 0 ? fun3(score) : fun4(score)
+// }
+
+// const fun3 = (num) => console.log(`Liczba ${num} jest parzysta`)
+// const fun4 = (num) => console.log(`Liczba ${num} jest nie parzysta`)
+
+// add2(5, 5)
+
+// console.log('--------------------------------')
+
+// let celsius, temp
+
+// const fahrenheit = (c) => {
+//     celsius = c
+
+//     temp = celsius * 1.8 + 32
+
+//     console.log(`X\xB0${celsius} = Y\xB0${temp}`);
+// }
+
+// fahrenheit(20)
+
+// console.log('--------------------------------')
+
+let num = 10
+let numbers = []
+
+for (i = 0; i < num; i++) {
+	numbers.push(i)
+}
+console.log(numbers)
+
+numbers.forEach(x => x % 3 === 0 && x !== 0 ? console.log(`${x} jest podzelnie przez 3`) : console.log(`${x} nie jest podzielene przez 3 lub ${x} równe jest 0`))
+
+console.log('----');
+
+//LUB
+
+const checkNumbers = number => {
+    (number % 3 === 0 && number !== 0) ? console.log(`${number} jest podzelnie przez 3`) : console.log(`${number} nie jest podzielene przez 3 lub ${number} równe jest 0`)
 }
 
-
-if(newString.includes('Audi')){
-    newString.push('Reno')
-}else{
-    newString.pop()
-}
-
-console.log(newString);
+numbers.forEach(checkNumbers)

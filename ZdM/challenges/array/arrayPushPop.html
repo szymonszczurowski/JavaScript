@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+                /*
+        Array - push pop
+        1) Stwórz funkcję generateNumArray przyjmującą jeden parametr
+           określający rozmiar tablicy
+        2) Funkcja stworzy tablicę z ilością elementów na podstawie 
+           liczby w parametrze. Wynikowa tablica zostanie zwrócona
+           przez funkcję.
+        3) Użyj pętli for do wygenerowania tablicy, uzupełnij
+           tablicę funkcją push. Pod kolejne wartości w tablicy
+           wstaw kolejne liczby z licznika pętli.
+        4) Pokaż całą tablicę w konsoli. 
+		5) Wykorzystaj funkcję tablicy pop() która pobiera i zwraca
+		   ostatni element z tablicy i pokaż tą wartość w konsoli.
+		   Wywołaj pop() trzykrotnie oraz ponownie pokaż wynikową
+		   tablicę w konsoli, będzie miała o 3 elementy mniej.
+		   Pamiętaj że pop() nie przyjmuje żadnego argumentu.
+        */
+
+        const generateNumArray = (sizeArr) => {
+            let array = []
+
+            for(let i = 0; i < sizeArr; i++){
+               array.push(i)
+            }
+
+            console.log(array);
+      
+            array.pop()
+            array.pop()
+            array.pop()
+            console.log(array);
+        }
+
+
+        console.log(generateNumArray(12));
+
+    </script>
+</body>
+</html>

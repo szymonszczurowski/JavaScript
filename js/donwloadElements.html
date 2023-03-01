@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Do, Document, Window...</h1>
+
+    <ul style="margin-top: 100px; margin-left: 100px;">
+        <li>Li bez klasy oraz ID</li>
+        <li id="item">To LI ma ID</li>
+        <li>Li bez klasy oraz ID</li>
+        <li class="test">to Li ma klasę</li>
+        <li class="test">to Li ma klasę</li>
+        <li>Li bez klasy oraz ID</li>
+        <li id="item">To LI ma ID</li>
+        <p class="test">hej</p>
+    </ul>
+
+<!-- Najczęscieś korzysta się i tak z klas i atrybutów -->
+    <script>
+
+        // TO SĄ STARSZE SPOSOBY POBIERANIA
+
+        // getELmentByID
+        const elementId = document.getElementById('item')
+        console.log(elementId);
+
+        //getElementByTagName
+        const tagName = document.getElementsByTagName('li')
+        console.log(tagName);
+
+        //getElementsByClassName
+        const className = document.getElementsByClassName('test')
+        console.log(className);
+
+        //TO SĄ NOWSZE SOSOBY POBIERANIA (ES6)
+        console.log('========================================');
+
+        // OGGÓLNIE ZAPISY SĄ TAKIE SAME JAK W CSS
+        //querySelector //klasę trzeba pobrać z kropką //id z #
+        const query = document.querySelector('.test')
+        const query2 = document.querySelector('li')
+        const query3 = document.querySelector('#item')
+        console.log('klasa');
+        console.log(query);
+        console.log('tag');
+        console.log(query2);
+        console.log('id');
+        console.log(query3); 
+
+        //querySelectorAll
+        const queryAll = document.querySelectorAll('.test')
+        const queryAll2 = document.querySelectorAll('li')
+        const queryAll3 = document.querySelectorAll('#item')
+        const queryAll4 = document.querySelectorAll('li.test')
+        console.log('klasy');
+        console.log(queryAll);
+        console.log('tagi');
+        console.log(queryAll2);
+        console.log('idiki');
+        console.log(queryAll3);
+        console.log('li.test');
+        console.log(queryAll4);
+
+        console.log('========================================');
+
+        const ulList = document.querySelector('ul')
+        const liList = ulList.querySelector('li')
+        console.log(liList);
+
+        console.log('========================================');
+
+
+        //QUERY SELECTOR NIE WSPIERAJĄ ŻYWYCH KOLEKCJI (Elemnty dodwane dynamicznie) getELement wspierają, ale i tak korzysta sie rzadko
+
+        const newLi = document.createElement('li')
+        ulList.appendChild(newLi).textContent = ':)'
+
+        console.log(queryAll2.length); // nie pobiera ellentu dynamicznego
+        console.log(tagName.length); // pobiera ellement dynamiczny
+
+    </script>
+    
+</body>
+</html>

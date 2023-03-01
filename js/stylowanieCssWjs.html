@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .best{
+            font-size: 48px;
+            background-color: tomato;
+            padding: 20px 40px;
+            border-radius: 100px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>jestem DIV-em!</p>
+    </div>
+    
+    <script>
+        const div = document.querySelector('div')
+        
+        // div.style.fontSize = '48px'
+        // div.style.backgroundColor = 'tomato'
+        // div.style.padding = '20px 40px'
+        // div.style.borderRadius = '100px'
+        // div.style.color = 'white'
+
+        // najlpeij i powinno się do tego uzyuwać klas css
+
+        div.classList.add('best')
+    </script>
+</body>
+</html>

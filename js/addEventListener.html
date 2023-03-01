@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button:hover{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <button class="btn btn-1">Kliknięto mnie~!</button>
+        <button class="btn btn-2">Najechano na mnie...</button>
+        <button class="btn btn-3">double click</button>
+    </div>
+    
+    <script>
+        const btn1 = document.querySelector('.btn-1')
+        const btn2 = document.querySelector('.btn-2')
+        const btn3 = document.querySelector('.btn-3')
+
+        //target.addEventListener(type, listener)
+
+        // Ponieżej z wykorzystaniem funkcji anonimowych
+        btn1.addEventListener('click', function () {
+            console.log('kliknęto mnie');
+        })
+
+        btn2.addEventListener('mouseover', () => console.log('najechano na mnie'))
+
+        // poniżej zwykłe funkcje z których lepiej korzystać, można wykorzystać kilka razy i listenery trzymac na końcy kodu
+        const test = () => {
+            console.log('double click');
+        }
+
+        btn3.addEventListener('dblclick', test)
+        // btn1.addEventListener('click', test)
+
+
+
+        const btnAll = document.querySelectorAll('button')
+
+        const smile = () => {
+            console.log(':))))');
+        }
+
+
+        // btnAll.addEventListener('click', smile) //złe ponieaż próbujemy nadać listenera na tablicy, a trzba bardziej specyficznie
+
+        btnAll.forEach(btn => btn.addEventListener('click', smile))
+
+
+        // https://developer.mozilla.org/en-US/docs/Web/Events
+        // https://mmcworld.pl/javascript/wszystko-co-musisz-wiedziec-o-addeventlistener-w-javascript/
+    </script>
+</body>
+</html>

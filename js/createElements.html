@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+
+    </div>
+
+    <script>
+        const ulList = document.createElement('ul')
+        const liItem = document.createElement('li')
+        liItem.textContent = 'cześć'
+
+        // document.appendChild(ulList) // nie zadziała, bo trzeba wskazać badziej dokładnie
+
+        //appednChild, append dodaje na koniec
+        document.body.appendChild(ulList)
+        ulList.appendChild(liItem)
+
+
+        const div = document.querySelector('div')
+        const newParagraph = document.createElement('p')
+        div.appendChild(newParagraph)
+
+        //append pozwala dodwać kilka elementów na raz i pozwala dosawać tekst  -- JEST TO NOEWASZA METODA
+
+        const heading = document.createElement('h2')
+        div.append(newParagraph, heading, 'cześć')
+    </script>
+</body>
+</html>

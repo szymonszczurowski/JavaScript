@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- 
+    eśli będziecie bawić się z kodem i zobaczycie u siebie pointerEvent, a nie mouseEvent jak u mnie w kolejnym odcinku – nie ma się czym przejmować. 😉
+
+To jest dokładnie to samo, ale i nie do końca.
+
+mouseEvent wskazuje tylko na kursor, na mysz.
+
+pointerEvent wskazuje na pointer – wskaźnik. Na desktopie jest to kursor, na urządzeniu z ekranem dotykowym będzie to nasz palec / urządzenia typu Apple Pencil. -->
+
+<button class="one two three">hej</button>
+
+<script>
+    //event 
+
+    const btn = document.querySelector('button')
+    
+    const test = (event) => {
+        console.log(event);
+        console.log(event.target); // elment który kilkamy
+        console.log(event.target.classList); // wyświelta wszystkie klasy po kliknięciu na el
+        console.log(event.target.offsetTop); // iloś pixeli od góry
+    }
+
+    btn.addEventListener('click', test)
+
+    // https://developer.mozilla.org/en-US/docs/Web/API/Event/target
+
+</script>
+
+
+
+</body>
+</html>

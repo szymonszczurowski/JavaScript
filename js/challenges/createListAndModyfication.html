@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .li_style{
+            background-color: royalblue;
+            padding: 20px 40px;
+            font-size: 48px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+
+        const ulList = document.createElement('ul')
+
+        document.body.append(ulList)
+
+        const ul = document.querySelector('ul')
+
+
+        for (let i = 1; i <= 10; i++) {
+           const liItem = document.createElement('li')
+           liItem.textContent = i
+           ul.append(liItem)
+           
+        }
+
+
+        // const li = document.querySelectorAll('li')
+        // let lastLi =  li[li.length-1]
+
+        //LUB
+
+        const lastLi = ulList.querySelector('li:last-child')
+
+        lastLi.textContent = 'jestem ostatnim elementem'
+        lastLi.classList.add('li_style')
+
+
+
+    </script>
+</body>
+
+</html>

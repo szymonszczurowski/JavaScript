@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+// przechwytywanie z bąbelków 
+
+//wytałmaczoine na filmiku js
+
+// w bubbling idziemy od dołu, od najmłodszego -  domyślnie korzystamy z tego
+
+//w captrin od góry, od najstarszego - to musielibyśmy sobie włączyć sami
+
+const body = document.querySelector('body')
+body.addEventListener('click', infolime, {capture: true})
+
+// https://www.w3.org/TR/DOM-Level-3-Events/#event-flow
+    </script>
+</body>
+</html>

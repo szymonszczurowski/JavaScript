@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button>hej</button>
+
+    <script>
+        const btn = document.querySelector('button')
+
+        // outerHTML
+        // console.log(btn.outerHTML); 
+        // btn.outerHTML = '123' // w miejsce elementu wstawia tekst
+
+        // ZE WZGLĘDÓW BEZPIECZEŃSTWA MOŻEMY KORZYSTAĆ TYLKO MY BEZ UMOŻLIWIANIA KORZYSTANIA Z TEGO DLA UŻYTKOWNIKA, BO NARAŻAMY NA ATAKI
+        btn.innerHTML = '<li>innetHTML</li>' // element zostaje, ale zmieniamy/doaje testk albo element
+
+
+        // NAJLEPIEJ KORZYSTAĆ Z TYCH DWÓCH
+        console.log(btn.innerText); // wyświuetla zawartość elemntu
+        console.log(btn.textContent);
+
+        btn.innerText = '<li>hej1</li>'
+        btn.textContent = '<li>hej2</li>'
+
+        //różnica między tymi dwoma ti inner zwraca tylko teskt, a textContent omija style i wyświetla wszytko 
+
+    </script>
+</body>
+
+</html>

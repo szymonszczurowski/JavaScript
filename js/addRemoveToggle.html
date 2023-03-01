@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <button class="add">dodaj</button>
+        <button class="remove">usuń</button>
+        <button class="toggle">toggle</button>
+    </div>
+
+    <p>jestem paragrafem</p>
+
+    <script>
+        const addBtn = document.querySelector('.add')
+        const removeBtn = document.querySelector('.remove')
+        const toggleBtn = document.querySelector('.toggle')
+        const text = document.querySelector('p')
+
+        const addClass = () => {
+            text.classList.add('test')
+        }
+
+        const removeClass = () => {
+            text.classList.remove('test')
+        }
+
+        const toggleClass = () => {
+            text.classList.toggle('test')
+        }
+
+        
+        addBtn.addEventListener('click', addClass)
+        removeBtn.addEventListener('click', removeClass)
+        toggleBtn.addEventListener('click', toggleClass)
+
+    </script>
+
+
+</body>
+
+</html>

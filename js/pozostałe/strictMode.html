@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    // js wybacza błędy i możemy np. w pętli nie zadeklarować zmiennej, ale i tak zadzaiła
+    //JEDNAK KIEDY UŻYEJMY use strict TO KAŻEMY JS ROBIĆ WSZYSTKO ZGODNIE Z ZASADAMI
+
+    'use strict'
+
+    const colors = ['red', 'green', 'blue']
+
+    for (color of colors) {
+        console.log(color);
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <img src="" alt="">
+
+    <article id="electric-cars" data-columns="3" data-index-number="12314" data-parent="cars">
+    </article>
+    <!--utworzone własne atrybuty -->
+
+    <script>
+
+const article = document.querySelector("#electric-cars");
+
+console.log(article.dataset.columns);
+console.log(article.dataset.indexNumber)
+console.log(article.dataset.parent)
+
+article.setAttribute('data-test', '123')
+console.log(article);
+    </script>
+
+</body>
+
+</html>

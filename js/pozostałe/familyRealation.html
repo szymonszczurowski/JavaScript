@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>hej</h1>
+
+    <div class="grandparent">
+        <div class="parent">
+            <p class="child">1</p>
+            <p class="child middle-child">2</p>
+            <p class="child">3</p>
+        </div>
+    </div>
+    
+    <script>
+        const grandpa = document.querySelector('.grandparent')
+        console.log(grandpa.querySelector('.parent'));
+        console.log(grandpa.querySelectorAll('.child'));
+
+        const middle = document.querySelector('.middle-child')
+        //brat przed
+        const prevSibling = middle.previousElementSibling
+        console.log(prevSibling);
+        //brat po
+        const nextSibling = middle.nextElementSibling
+        //rodzic
+        console.log(nextSibling);
+        const parentEl = middle.parentElement
+        console.log(parentEl);
+        //dziadek i wyżej 
+        const grandpaItp = middle.parentElement.parentElement
+        console.log(grandpaItp);
+        // Lepiej jednak zrobić tak:
+        console.log(middle.closest('.grandparent'));
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="wrapper">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <script>
+        const li = document.querySelectorAll('li')
+
+
+        //     for(let i = 0; i < li.length; i++){
+        //         const num = i+1
+        //         li[i].setAttribute('data-id', num)
+        //         li[i].textContent = num
+        //     }
+        
+        // const li3 = document.querySelector('[data-id="3"]')
+        // console.log(li3.closest('.wrapper'));
+      
+        // LUB
+
+        let number = 1
+        for (const i of li) {
+            i.textContent = number
+            i.dataset.id = number
+            number++
+        }
+
+        const li3 = document.querySelector('[data-id="3"]')
+        console.log(li3.closest('.wrapper'));
+    </script>
+</body>
+</html>

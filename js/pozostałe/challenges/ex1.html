@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img>
+
+    <script>
+        const img = document.querySelector('img')
+
+        img.setAttribute('src', 'https://www.history.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTkyNDQ5NzY0ODY2OTI1OTgw/gettyimages-1395722285.jpg')
+
+
+        img.setAttribute('alt', 'miasto nowy jork z lotu ptaka')
+
+        const timer = () => {
+          console.log('drukuje się co 2s')
+        }
+
+        setTimeout(timer, 2000)
+    </script>
+</body>
+</html>

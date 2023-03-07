@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const user = {
+            name: 'Klaudia',
+            age: '18',
+            'fav-animal': 'dog'
+        }
+
+        user.country = 'Polska'
+        // user.fav-color
+        user['fav-color'] = 'green'
+
+        console.log(user);
+        console.log('-------------------');
+
+
+        const dogName = 'Puszek'
+        const dogAge = 6
+
+        const dog = {
+            //Można zapisać tak:
+            // name: dogName,
+            // age: dogAge
+
+            // Można zapisać tak:
+            // dogName: dogName,
+            // dogAge: dogAge
+            
+            //Jeżli nazwa klucza jest taka sama jak nazwa zmiennej można zroić to tak: (w nowszym js)
+            dogName,
+            dogAge
+        }
+
+        console.log(dog);
+    </script>
+</body>
+</html>

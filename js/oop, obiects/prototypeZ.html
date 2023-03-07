@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //z prototypów korzysta się po to, zeby nie zajmować pamięci
+        //Zamiast tworzyć funkcje w samym konstruktorze i wywoływać ją za każdym razem, możemy
+        // skorzysrać z PROTOTYPE
+
+        function User(name, age) {
+            this.name = name
+            this.age = age
+        }
+
+
+        //Wywołanie (obiekt na bazie konstruktora)
+        const newUser = new User('Szymon', 22)
+        const newUser2 = new User('Radek', 21)
+        const newUser3 = new User('Marcin', 44)
+
+        console.log(newUser, newUser2, newUser3);
+
+        //obiekty dziedzczą prototyp swojego konstruktora
+
+        User.prototype.hello = function () {
+            console.log(`Cześć ${this.name}`);
+        }
+
+        User.prototype.country = 'Polska'
+
+        newUser.hello()
+        console.log(newUser3.country);
+    </script>
+</body>
+
+</html>

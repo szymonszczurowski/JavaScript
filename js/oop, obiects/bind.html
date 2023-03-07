@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function test() {
+            console.log(this);
+            console.log(this.name);
+        }
+
+        const car1 = {
+            name: 'Audi'
+        }
+
+        const car2 = {
+            name: 'Dodge'
+        }
+
+        const car3 = {
+            name: 'Nissan'
+        }
+
+        //bind pozwala przypisać obiket do funkcji
+        test.bind(car1)()
+        test.bind(car2)()
+        test.bind(car3)()
+
+
+    </script>
+</body>
+</html>

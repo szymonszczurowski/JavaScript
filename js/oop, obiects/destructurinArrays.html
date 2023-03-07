@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const colors = ['red', 'green', 'blue']
+
+        const firstColor = colors[0]
+        const secondColor = colors[1]
+
+        //lub za pomocą destrukcji, ale nie można wykorzystać np. indexów, więc trochę bez sesnu używać takiego sposobu
+        const [first, second] = colors
+
+        console.log(firstColor, secondColor);
+        console.log(first, second);
+    </script>
+</body>
+</html>

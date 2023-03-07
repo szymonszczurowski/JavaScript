@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: rgba(0, 0, 0, 0.87);
+        }
+        button{
+            padding: 20px 48px;
+            margin: 20px;
+            cursor: pointer;
+            background: none;
+            color: #fff;
+            font-size: 18px;
+            border: 3px solid #ddd;
+            border-radius: 8px;
+            transition: .3s;
+            text-transform: uppercase;
+
+        }
+
+        button:hover{
+            background-color: #ddd;
+            color: #000;
+        }
+
+        p{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <div class="buttons">
+        <button class="btn-1">#1</button>
+        <button class="btn-2">#2</button>
+        <button class="btn-3">#3</button>
+    </div>
+    <p></p>
+
+    <script>
+        const div = document.querySelector('.buttons')
+        const btn1 = document.querySelector('.btn-1')
+        const btn2 = document.querySelector('.btn-2')
+        const btn3 = document.querySelector('.btn-3')
+        const paragraph = document.querySelector('p')
+
+        function Test(name, price){
+            this.name = name
+            this.price = price
+            
+        }
+
+        const obiect1 = new Test('schabowy', 100)
+        const obiect2 = new Test('kebab', 24)
+        const obiect3 = new Test('pizza', 50)
+
+        Test.prototype.print = function(){
+            console.log(`${this.name} kosztuje ${this.price} zł`);
+        }
+
+        Test.prototype.text = function(){
+           paragraph.textContent = (`${this.name} kosztuje ${this.price} zł`)
+        }
+
+        const main = () => {
+            prepareDOMEEvents()
+        }
+
+        const prepareDOMEEvents = () => {
+            div.addEventListener('click', eat)
+        }
+
+        const eat = e =>{
+           if(e.target.matches('.btn-1')){
+            obiect1.print()
+            obiect1.text()
+           }else if(e.target.matches('.btn-2')){
+            obiect2.print()
+            obiect2.text()
+           }else if(e.target.matches('.btn-3')){
+            obiect3.print()
+            obiect3.text()
+           }
+
+        }
+
+        document.addEventListener('DOMContentLoaded', main)
+
+
+
+        // LUB PROŚCIEJ, ale tylko z konsolą
+
+        //  btn1.addEventListener('click', () => obiect1.print())
+        // btn2.addEventListener('click', () => obiect2.print())
+        // btn3.addEventListener('click',() => obiect3.print())
+
+
+        // LUB
+
+
+        // const button1 = () => {
+        //     obiect1.print()
+        //     obiect1.text()
+        // }
+        // const button2 = () => {
+        //     obiect2.print()
+        //     obiect2.text()
+        // }
+        // const button3 = () => {
+        //     obiect3.print()
+        //     obiect3.text()
+        // }
+
+
+        // btn1.addEventListener('click', button1)
+        // btn2.addEventListener('click', button2)
+        // btn3.addEventListener('click', button3)
+
+   
+
+    </script>
+</body>
+</html>

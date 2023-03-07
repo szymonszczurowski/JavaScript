@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //PYTANIA REKRU
+
+        const movie = {
+            title: 'Avengers'
+        }
+
+        function showMovie(price, cinema){
+            console.log(`Film ${this.title}. cnea: ${price}, kino ${cinema}`);
+        }
+
+        // tutaj this wskazuje na window
+        showMovie(30, 'SuperKINO')
+
+        // funckja.call(OBIEKT, ARGUMENTY)
+        showMovie.call(movie, 35, 'SuperKINO2')
+
+        // funkcja.apply(OBIKET, TABLICA)
+        showMovie.apply(movie, [35, 'SuperKINO2'])
+        
+    </script>
+</body>
+</html>

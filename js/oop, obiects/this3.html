@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="buttons">
+        <button class="hej">1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+    </div>
+    <script>
+        const btns = document.querySelectorAll('button')
+
+        // ze zwykła funkcją this i e.target działaja tak samo
+
+        // btns.forEach(btn => btn.addEventListener('click', function(e){
+        //     //wskazuje na alemetn który klikneliśmy
+        //     console.log(this);
+        //     // console.log(this.textContent);
+        //     console.log('------');
+        //     console.log(e.target);
+        //     // console.log(e.target.textContent);
+        //     console.log('------');
+        // }));
+
+        //ale z funckją strzałką this wskazuje juz undefined
+
+        btns.forEach(btn => btn.addEventListener('click', e => {
+            //wskazuje na alemetn który klikneliśmy
+            // console.log(this);
+            console.log(this.textContent);
+            console.log('------');
+            console.log(e.target.textContent);
+            // console.log(e.target);
+            console.log('------');
+        }));
+
+
+        //this z funckji strzałkowej
+        const ob = {
+            number: 123,
+            showNumber() {
+                console.log(this.number);
+            },
+            showNumber2: () => {
+                console.log(this); //window
+            },
+            //można użyć też strzałkowej, ale to jest w tedy strasznie na około 
+            showNumber3() {
+                const test = () => {
+                    console.log(this.number);
+                    console.log(this);
+                   
+                }
+                test()
+            }
+        }
+
+        ob.showNumber()
+        ob.showNumber2()
+        ob.showNumber3()
+
+        //JEŻLI MAMY ZWYJKŁĄ FUNKCJĘ TO THIS JEST WIĄZANY Z NASZYM OBIEKTEM PO LEWEJ STRONIE KROPKI 
+        // W FUNCKJI STRZAŁKOWEJ TAK TO NIE DZIAŁA, PO PRSOTU GŁUPIEJE. działa tak jakbyśmy wowołali go globalnie
+        //PO PROSTU W FUNCKJI STRZAŁKOWEJ TARGETUJEMY WINDOW
+
+
+    </script>
+</body>
+
+</html>

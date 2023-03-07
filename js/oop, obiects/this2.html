@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 'use strict' // jeżeli go użyjemy to this z funcki będzie undefined
+
+        // zakres globalny (windows czyli wszystko)
+        console.log(this);
+
+        //zakres funkcyjny, ale this i tak wywoała się na window
+        function test() {
+            console.log(this);
+        }
+        //przy wywołaniu i tan zakres gloalny
+        test()
+
+        console.log('-----------------');
+
+        //this w zwykłej funkcji wskazuje na obiekt który jest na lewo od kropki
+        const person = {
+            name: 'lisa',
+            'fav-meal': 'kotlet',
+            // showInfo(){
+            //     console.log(this);
+            //     console.log(this['fav-meal']);
+            // }
+            address: {
+                city: 'Kraków',
+                'zip-code': '00 - 000',
+                showCity: function () {
+                    console.log(this.city);
+                }
+            }
+        }
+
+        // person.showInfo()
+
+        //this wskazuje na obiekt który jest na lewo od kropki
+        person.address.showCity()
+
+
+        console.log('-----------------');
+
+        //this w konstruktorze wskazuje na obiekt, stworzony na podstawie konstruktoa       
+        function Food(name) {
+            this.name = name
+        }
+
+        const meal = new Food('schabowy')
+        const meal2 = new Food('cola')
+
+        console.log(meal, meal2);
+    </script>
+</body>
+
+</html>

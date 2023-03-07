@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //konstruktowy i klasy nazwyamy z dużej
+        //KONSTRUKTOR:
+
+        //OBECNIE NIE KORZYSTA SIĘ JUZ Z KONSTRUKTORÓW TYLKO Z KLAS
+
+        function User(name, age) {
+            this.name = name
+            this.age = age
+
+            this.hello = function () {
+                console.log(`Cześć ${this.name}`);
+            }
+        }
+
+        // KLASA
+        // class User {
+        //     constructor(name, age) {
+        //         this.name = name
+        //         this.age = age
+        //     }
+        // }
+
+
+        //Wywołanie (obiekt na bazie konstruktora)
+        const newUser = new User('Szymon', 22)
+        const newUser2 = new User('Radek', 21)
+
+        console.log(newUser);
+        console.log(newUser2);
+        newUser.hello()
+        newUser2.hello()
+    </script>
+</body>
+
+</html>

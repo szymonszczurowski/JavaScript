@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function Person(name, age){
+            this.name = name
+            this.age = age
+
+            // this.hello = function () {
+            //     console.log(`Cześć ${this.name}`);
+            // }
+        }
+
+
+        Person.prototype.sayHI = function(){
+            console.log('Cześć jestem ' + this.name);
+        }
+
+        Person.prototype.showAge = function(){
+            console.log('Mam ' + this.age + ' lat');
+        }
+
+        const person1 = new Person('Szymon', 22)
+        console.log(person1);
+        person1.sayHI()
+        person1.showAge()
+
+
+        // ===========================
+        console.log('---------------------');
+
+        class Person2 {
+            constructor(name, age){
+            this.name = name
+            this.age = age
+        }
+
+        sayHI(){
+            console.log('Cześć jestem ' + this.name);
+        }
+
+        // jak tak ją zapiszemy to widać ją w obiekce i zajmuje miejsce
+        showAge = function(){
+            console.log('Mam ' + this.age + ' lat');
+        }
+
+        }
+        
+        const person2 = new Person2('Ania', 23)
+        person2.sayHI()
+        person2.showAge()
+        console.log(person2);
+
+    </script>
+</body>
+</html>

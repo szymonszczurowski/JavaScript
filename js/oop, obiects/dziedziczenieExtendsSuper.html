@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        class Animal {
+            constructor(name) {
+                this.name = name
+            }
+
+            sound() {
+                console.log('hau hau');
+            }
+        }
+
+
+        class Dog extends Animal {
+
+        }
+
+        const dog = new Dog('Drops')
+        console.log(dog);
+        dog.sound()
+
+        console.log('====================================================');
+
+        class Dog2 extends Animal {
+            //jako parameter trzeba przekazać klucz z klasy po której dziediczymy i to co chcemy dodać
+            constructor(name, age) {
+                //super trzeba skorzystać, zeby móć wykorzstać wartość z klasy po której dieedizczymy
+                super(name)
+                this.age = age
+            }
+
+            // test(){
+            //     console.log('test');
+            // }
+        }
+        const dog2 = new Dog2('Drops', 7)
+        console.log(dog2);
+        dog2.sound()
+
+        console.log('====================================================');
+
+        class Cat extends Animal {
+            
+            //tego po niżej nie trzeba zapisywac jeśłi nie doajemy własnychd danych
+            // constructor(name){
+            //     super(name)
+            // }
+            sound(){
+                console.log('miau miau');
+            }
+        }
+
+        const cat = new Cat('kot')
+        console.log(cat);
+        cat.sound()
+
+
+        // dog2.test()
+
+    </script>
+</body>
+
+</html>

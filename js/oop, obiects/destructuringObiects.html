@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const person = {
+            name: 'Kasia',
+            age: 23,
+            job: 'DJ',
+
+            car: {
+                brand: 'Dodge',
+                model: 'Viper'
+            }
+        }
+
+
+        const showInfo = () => {
+            // const name = person.name
+            // const age = person.age
+            // const job = person.job
+
+            // to jest krótszy zapis wersji wyżej
+            const { name, age: firstName, job } = person // po : można nadaać swoją własną nazwę
+
+            // za pomocą desktrukutyzacji można zapisać to tak w taki sposób niż wersja niżej
+            console.log(`${name} pracuje jako ${job} i ma ${firstName} lata.`);
+            // console.log(`${person.name} pracuje jako ${person.job} i ma ${person.age} lata.`);
+        }
+
+        showInfo()
+
+        console.log('=====================');
+
+
+        // można to również zrobić w taki sposó:
+        const showInfo2 = ({ name, age, job }) => {
+
+
+            console.log(`${name} pracuje jako ${job} i ma ${age} lata.`);
+        }
+
+        showInfo2(person)
+
+
+        console.log('=====================');
+
+
+        // można np. zrobić też wykorzystać obiekt  z obiektu
+        const showInfo3 = ({car: {brand, model}}) => {
+
+            // możan w paramterach albo tak jak poniżej
+            // const {car: {brand, model}} = person
+
+            console.log(`Jej samochód to ${brand} ${model}`);
+        }
+
+        showInfo3(person)
+    </script>
+
+</body>
+
+</html>

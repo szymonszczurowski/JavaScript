@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const newUser = {
+            name: 'Lisa',
+            age: 23,
+            car: {
+                brand: 'Audi',
+                model: 'a3',
+                color: 'black',
+                // sound: function(){
+                //     console.log('brrrBrrr');
+                // }
+
+                // sound: () => {
+                //     console.log('brrrBrrr');
+                // }
+
+                sound() {
+                    console.log('brrrBrrr');
+                },
+                test: 'hello'
+            }
+        }
+
+        console.log(newUser);
+        newUser.car.sound()
+    </script>
+</body>
+
+</html>

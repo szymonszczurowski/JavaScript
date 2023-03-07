@@ -30,7 +30,7 @@
         */
 
         function getUserInformation(name, surname, job) {
-           let nameU = name.toUpperCase().trim()
+           let nameU = name.toUpperCase()
            let surnameU =  surname.toUpperCase().trim()
            let jobL = job.toLowerCase().trim()
 
@@ -40,7 +40,7 @@
             return text
         }
 
-        const user1 = getUserInformation("Ania", "Kowalska", "Programistka")
+        const user1 = getUserInformation(" Ania", "Kowalska", "Programistka")
         console.log(user1);
      </script>
 </body>

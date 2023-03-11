@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #333;
+            color: #ffffff;
+            margin: 50px;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+        }
+
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+    
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <h1>axios</h1>
+
+    <div style="display: flex">
+        <img src="" alt="" class="one">
+        <img src="" alt="" class="two">
+        <img src="" alt="" class="three">
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script>
+        // Axios to popularna biblioteka JavaScript, która umożliwia realizację zapytań HTTP z poziomu aplikacji Node. js. Została stworzona z myślą o ułatwieniu pracy z siecią, a jej głównym celem jest umożliwienie prostej i przejrzystej komunikacji między aplikacją a API.
+        // Jej działanie jest podobne do fetch i jest bardziej uproszcozn
+        // do jej użycia, trzeba go wykorzstać an stronie np. za pomcoą scripta upiszczonego w github
+
+        // https://bulldogjob.pl/readme/axios-czy-fetch-czego-lepiej-uzywac
+        // https://github.com/axios/axios
+
+        const one = document.querySelector('.one')
+        const two = document.querySelector('.two')
+        const three = document.querySelector('.three')
+        const URL = 'https://dog.ceo/api/breeds/image/random'
+
+        fetch(URL)
+            .then(res => res.json())
+            .then(res => one.setAttribute('src', res.message))
+
+
+        // axios wypluwa już prawie gotowe dane i nie trzeba przrabiać na json().
+        // trzeba jeszcze odwoałać się do DATA
+        axios.get(URL).then(res => {
+            two.setAttribute('src', res.data.message)
+        })
+
+        async function showImage() {
+            const response = await axios.get(URL) 
+            console.log(response);
+            three.setAttribute('src', response.data.message)
+
+        }
+
+        showImage()
+    </script>
+
+</body>
+
+</html>

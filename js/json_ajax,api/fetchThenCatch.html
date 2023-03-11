@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 100vh;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        button {
+            color: white;
+            background: none;
+            border: 1px solid white;
+            padding: 1em;
+            cursor: pointer;
+        }
+
+        button:hover {
+            color: black;
+            background-color: white;
+        }
+        img{
+            margin-top: 50px;
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <p></p>
+
+    <button>CLICK</button>
+    <img src="" alt="">
+
+    <script>
+        const btn = document.querySelector('button')
+        const img = document.querySelector('img')
+
+        //zmienne API lub klucze wartos zapisywać z dużej np API_KEY
+        const URL = 'https://dog.ceo/api/breeds/image/random'
+
+        // fetch().then().then().catch()
+
+
+        // zamaist strzałkowej w then może być zwykła funkcja
+        // function(res){
+        //     console.log(red);
+        // }
+
+
+
+        btn.addEventListener('click', () => {
+            fetch(URL)
+                .then(res => res.json()) // ress przerabiamy na json
+                .then(processData => img.setAttribute('src', processData.message))
+                .catch(err => console.error(err))
+
+        })
+    </script>
+</body>
+
+</html>

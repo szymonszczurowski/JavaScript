@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // jest to jeszcze bardziej uproszczony sposób niż promisy
+
+        //pierwszy promise
+        const checkAge = age => {
+            return new Promise((resolve, reject) => {
+                if (age >= 18) {
+                    resolve()
+                } else {
+                    reject('Masz za mało lat!')
+                }
+            })
+        }
+
+
+
+        //drugi promise
+        // można bez setTimeoute, po prostu opóżnia wywołanie funkcji
+        const doubleCheck = () => {
+            return new Promise((resolve, reject) => {
+                console.log('Sprwdzam jeszcze raz...')
+                setTimeout(() => {
+                    resolve('Faktycznie, wiek sie zagadza.')
+                }, 1000);
+            })
+        }
+
+        // checkAge(18)
+        // .then(() => {
+        //     console.log('Chyba możesz wejść')
+        //     return doubleCheck()
+        // })
+        // .then(res => console.log(res))
+        // .then(() => {
+        //     console.log('Weryfikacja zakończona');
+        // })
+        // .catch(error => console.error(error))
+
+
+        // te promisy powyżej możemy zrobić innym sposobem, tym niżej
+
+        // normalnie funckja jest sunchroniczna, po doaniu async jest asynchroniczna
+        async function test() {
+            try{
+                await checkAge(5)
+                console.log('chyba mozesz wejść')
+                await doubleCheck()
+                console.log('Faktycznie, wiek sie zagadza.');
+                console.log('Weryfikacja zakończona');
+            } catch {
+                console.error('Błąd, masz za mało lat')
+            }}
+
+            // try catch pozwala wywołać błąd w razie potrzeby. 
+        test()
+
+    </script>
+</body>
+
+</html>

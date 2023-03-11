@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // obietnice 
+
+        //     Obietnice (Promise) pozwalają nam nieco inaczej podejść do pracy z asynchronicznymi operacjami.
+        // Dzięki nim możemy wykonać jakiś kod, a następnie odpowiednio zareagować na jego wykonanie. Można powiedzieć, że to taka inna odmiana funkcji callback.
+
+        // Callback to funkcja przekazywana do drugiej funkcji przez parametr. Callback to funkcja wywoływana (uruchamiana) przez funkcję, do której ją przekazaliśmy
+
+        // na filmiku, wytłumaczone więcej
+
+        //takie parametry promise przyjmuje standardowo
+        const test = new Promise((resolve, reject) => {
+            if (true) {
+                resolve('jest ok') // w resolv i reject nie trzeba podawać żadnych parametrów i tak sie wykona
+            } else {
+                reject('Bład')
+            }
+        })
+
+
+        test
+        .then(info => console.log(info))
+        .catch(err => console.error(err))
+
+    </script>
+</body>
+
+</html>

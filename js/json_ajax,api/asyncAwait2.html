@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        const URL = 'https://dog.ceo/api/breeds/image/random'
+
+        fetch(URL)
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(error => console.error(error))
+
+
+        // można wykorszystać np do teog async
+        // const test = async () => {
+        // }
+        async function test() {
+            try {
+                const res = await fetch(URL)
+                const data = await res.json()
+                console.log(data);
+            } catch { 
+                console.error(error)
+             }
+        }
+
+        test()
+
+    </script>
+</body>
+
+</html>

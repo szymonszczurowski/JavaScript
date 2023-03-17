@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //REST
+        //Zapis ten umożliwia zbieranie w jedną zmienną (będącą tablicą) wielu parametrów przekazywanych do funkcji:
+        function sumAll(...parms) {
+            console.log("Parametry funkcji: " + parms);
+            return parms.reduce(function (acc, value) {
+                return acc + value
+            })
+        }
+
+        console.log(sumAll(10, 20, 30, 40));
+
+        function myF(...param) {
+            const newTab = [...param];
+            newTab.push("Ala");
+            console.log(param, newTab); //[1,2,3], [1,2,3,"Ala"]
+        }
+
+        myF(1, 2, 3);
+
+        function myF(...param) {
+            console.log(param); //[1, 2, 3, 4, 5]
+        }
+
+        myF(1, 2, 3, 4, 5);
+
+       //Rest operator możemy też wykorzystywać do pobierania w formie tablicy "pozostałych" wartości:
+        function printAbout(name = "Ala", ...other) {
+            console.log("To jest " + name);
+
+            if (other.length) {
+                console.log(`${name} ma zwierzaki: ${other.join()}`);
+            }
+        }
+
+        printAbout("Marcin", "pies", "kot"); //To jest Marcin. Marcin ma zwierzaki: pies,kot
+        printAbout(); //To jest Ala
+
+
+
+        //SPREAD //umożliwia rozbijanie iterowanej wartości na składowe.
+        //rozbijanie tablicy na poszczególne liczby
+        const tab = [1, 2, 3, 4];
+        console.log(...tab); //1, 2, 3, 4
+
+        //kopiowanie tablicy
+        const tab2 = [...tab];
+
+        //łączenie tablic
+        const tabPart = [3, 4]
+        const tabFull = [1, 2, ...tabPart, 5, 6]; //[1, 2, 3, 4, 5, 6]
+        console.log(tabFull);
+
+        //rozdzielanie tekstu na poszczególne litery
+        const str = "Ala ma kota";
+        const tab3 = [...str]; //["A", "l", "a", " ", "m", "a", " ", "k", "o", "t", "a"]
+
+        //Math.max wymaga parametrów po przecinku (nie jako tablica), więc mogę tutaj zastosować spread:
+        const tab4 = [1, 2, 3, 5, 4];
+        Math.max(...tab4); //5
+
+        const divs = document.querySelectorAll("div");
+
+        //nowa tablica z samymi tekstami z divów
+        const texts = [...divs].map(el => el.innerText);
+
+        const ob1 = {
+            a: 10,
+            b: 20
+        }
+
+        const ob2 = {
+            a: 15,
+            c: 30
+        }
+
+        const obBig = {
+            ...ob1,
+            ...ob2,
+            d: 40
+        };
+
+        console.log(obBig); //{ a : 15, b : 20, c : 30, d : 40 }
+
+    </script>
+
+</body>
+
+</html>

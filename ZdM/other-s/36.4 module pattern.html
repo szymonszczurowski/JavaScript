@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+// Moduł: prywatne i publiczne funkcje
+const Module = (function(globalObj){
+    let privData = 10;
+
+    return {
+        getData: function () {
+            return privData;
+        },
+        setData: function (data) {
+            privData = data;
+        }
+    }
+})(window);
+
+Module.getData(); // 10
+Module.setData(7);
+Module.getData(); // 7
+
+
+
+
+
+
+</script>    
+    
+</body>
+</html>

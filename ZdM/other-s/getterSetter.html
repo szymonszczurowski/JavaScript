@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        // settet pozwala sprawdzić np właściowiści, wykonać inne funkcje
+        const user = {
+            _userName: null,
+            set name(n) {
+                if (typeof name === 'string'){
+                    this._userName = n[0].toUpperCase() + n.substr(1, n.length)
+                }
+            },
+
+            get name(){
+                return this._userName
+            }
+        }
+
+        user.name = 'marek'
+        user.name = 'radek'
+        user.name = 'maciej'
+        console.log(user.name);
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // podczas enumeracji korzystać najlepje hasOwnProperty, która wyśiwea tylko z danego boiektu bez dziedziczoncy
+        const object = {
+            a: 10,
+            b: 'text',
+            print: function(){}
+        }
+
+        for (key in object) {
+            if (object.hasOwnProperty(key)) {
+                console.log('property ' + key + " wartość " + object[key]);
+            }
+        }
+    </script>
+</body>
+</html>

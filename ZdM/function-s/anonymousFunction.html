@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // FUNKCJA NAZWANA
+        function foo(){}
+        foo()
+
+        // FUNKCJA NAZWANA PRZYPISANA DO ZMIENNEJ
+        const test = function(){}
+        test()
+
+        //PRZYKŁAD
+        const result = [1,2,3,4,5].reduce(function(accumulator, currenValue){
+            return accumulator + currenValue
+        })
+
+        console.log(result);
+
+        // ZWRACANIE FUNKCJI ANONIMOWEJ
+
+        function foo(){
+            return function(value){
+                return value * 2
+            }
+        }
+
+        const bar = foo()
+        console.log(bar(4));
+
+
+
+    </script>
+    
+</body>
+</html>

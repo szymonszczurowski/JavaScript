@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+
+        function foo(num, o, u) {
+            num = 10 // prymitywy prekazywane przez wartość
+            o.data = 20; //obiekt przez referencję 
+            u = { name: "Daniel" }
+        }
+        const primitive = 35;
+        const obj = { data: 'txt' }
+        const user = { name: 'Ania' }
+
+
+        foo(primitive, obj, user)
+        console.log(primitive); // wartosć się nie zmieni ponieaż do funckji przekazujemy kopię
+        console.log(obj.data); // wartość się zmieni poniewaz przekazuje przez referncję
+        console.log(user.name); // zostanie ANIA, ponieaż nie można przypisywać nowych obiektów
+
+
+        console.log('===========');
+
+        function test(a,b){
+            for(let i = 0; i < arguments.length; i++){
+                console.log(i + ': ' + arguments[i]);
+            }
+        }
+
+        test(69, 'hello')
+    </script>
+
+</body>
+
+</html>

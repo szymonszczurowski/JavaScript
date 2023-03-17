@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+function division (a, b) {
+    let result = a / b;
+        console.log("Dzielenie a / b = " + result);
+    }
+
+    division (10, 5);
+    division (7, 2);
+    division (234, 23);
+
+    for (let i = 10; i > 0; i--) {
+        division (100, i);
+    }
+
+    function subtract (a, b) {
+        return a - b;
+    }
+
+    var result = subtract (12, 3);
+    console.log ("Wynik odejmowania: " + result);
+
+    test1();
+
+    function test1() {
+        console.log("Wywołanie test1");
+    }
+
+    //test2(); // wywołanie przed zadeklarowaniem funkcji spowoduje błąds
+    var test2 = function () {
+        console.log("Wywołanie test2");
+    }
+    test2();
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

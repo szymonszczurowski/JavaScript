@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+// simple factory
+
+function animalFactory(name) {
+    // round zaokragla do najbliższej całkowitej liczby
+    let randomId = Math.round( Math.random() * 1000 );
+    return {
+        name: name,
+        id: randomId,
+        info: function() {
+            console.log("I'am animal, unique id:" + this.id);
+        }
+    }
+}
+
+const dog = animalFactory("pies");
+dog.info(); // I'am animal, unique id: 234
+const cat = animalFactory("kot");
+cat.info(); // I'am animal, unique id: 345
+
+
+// można zwracać różne obiekty zależnie od potrzeb
+function AdminUser(email, password, rank){
+    BasicUser.call(this, email, password);
+    this.rank = "admin";
+}
+
+function BasicUser(email, password){
+    this.email = email;
+    this.password = password;
+    this.rank = "user";
+}
+
+let UserFactory = {
+    getUser: function(email) {
+        return new BasicUser(email, "qwerty");
+    },
+    getAdmin(email, password) {
+        return new AdminUser(email, password, "admin");
+    }
+}
+
+let user1 = UserFactory.getUser("user1@example.com");
+// {email: "user1@example.com", password: "qwerty", rank: "user"}
+let admin = UserFactory.getAdmin("admin@example.com", "123");
+// {email: "admin@example.com", password: "123", rank: "admin"}
+
+
+
+
+
+// factory method, proste tworzenie użytkownika
+function AdminUser(email, password, rank){
+    BasicUser.call(this, email, password);
+    this.rank = "admin";
+}
+
+function BasicUser(email, password){
+    this.email = email;
+    this.password = password;
+    this.rank = "user";
+}
+let UserFactory = {
+    getUser: function(rank) {
+        let employee;
+        let email = rank+(Math.round(Math.random()*100))+"@example.com";
+        switch (rank) {
+            case "user": 
+                employee = new BasicUser(email, "startPassword");
+            break;
+            case "admin": 
+                employee =  new AdminUser(email, "startPassword", "admin");
+            break;
+        }
+        employee.trainingRequired = true;
+        employee.info = function() {
+            console.log(employee.name);
+        }
+        return employee;
+    }
+};
+
+let user2 = UserFactory.getUser("user");
+// {email: "user77@example.com", password: "startPassword", rank: "user", trainingRequired: true, info: ƒ}
+let admin2 = UserFactory.getUser("admin");
+
+
+
+
+
+
+// Abstract factory pattern
+function Bike(name) {
+    this.name = name;
+    this.numWheels = 2;
+    this.info = function() {
+        console.log(this.name, " wheels:" + this.numWheels);
+    }
+}
+
+function BikeFactory() {
+    return new Bike("bike");
+}
+
+function Car(name) {
+    this.name = name;
+    this.numWheels = 4;
+    this.info = function() {
+        console.log(this.name, " wheels:" + this.numWheels);
+    }
+}
+
+function CarFactory() {
+    return new Car("car");
+}
+
+function Truck(name) {
+    this.name = name;
+    this.numWheels = 6;
+    this.info = function() {
+        console.log(this.name, " wheels:" + this.numWheels);
+    }
+}
+
+function TruckFactory() {
+    return new Truck("truck");
+}
+
+let AbstractVehicleFactory = (function(){
+    let types = [];
+    return {
+        registerType: function(type, factory){
+            let v = factory();
+            if(v.numWheels && v.name && v.info)
+            types[type] = factory;
+        },
+
+        getVehicle: function(type) {
+            let vehicleType = types[type];
+            if(vehicleType) return new vehicleType();
+        }
+    }
+})();
+
+AbstractVehicleFactory.registerType("bike", BikeFactory);
+AbstractVehicleFactory.registerType("car", CarFactory);
+AbstractVehicleFactory.registerType("truck", TruckFactory);
+
+AbstractVehicleFactory.getVehicle("car");
+//{name: "car", numWheels: 4, info: ƒ}
+AbstractVehicleFactory.getVehicle("truck");
+// {name: "truck", numWheels: 6, info: ƒ}
+
+
+function Plane(name) {
+    this.name = name;
+    this.numJetEngines = 2;
+    this.info = function() {
+        console.log(this.name, " wheels:" + this.numWheels);
+    }
+}
+
+function PlaneFactory() {
+    return new Plane("plane");
+}
+
+AbstractVehicleFactory.registerType("plane", PlaneFactory);
+AbstractVehicleFactory.getVehicle("plane"); // undefined
+
+</script>    
+    
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        // funkcja log znajduje się w obiekcie console
+        // zatem piszemy console.log()
+        console.log("Witaj Świecie!");
+
+        // 3 zmienne z identyfikatorami zmiennej: text1,text2, finalText
+        var text1 = "Witaj "; // var to słowo kluczowe, tworzy zmienną
+        var text2 = "Świecie!";
+
+        var finalText = text1 + text2;
+
+        // Wyświetlenie w konsoli wartości zmiennej finalText
+        console.log(finalText); // Witaj Świecie!
+
+        var output, _variable1, $test, $$$__data, __text123 = 10;
+        var dataąśćóńłę = "jakiś tekst";
+
+        var data1 = 3;
+        var DATA1 = 5;
+
+        console.log(data1); // 3
+        console.log(DATA1); // 5
+        console.log(DaTa1); // błąd ReferenceError
+
+        let someData = 1;
+
+        const dataCantChange = 22;
+
+        // znaki a i b to zmienne, czyli pudełka w których można
+        // przechowywać jakąś wartość np. liczbę czy tekst
+        var a = b * 3;
+        // 3 to wartość literalna, czyli zwykła liczba, nie jest zmienną
+
+        var data = 8;
+
+        var z1, data, test; // zadeklarowane nazw zwmiennych
+        z1 = 5; // przypisanie wartości do zmiennej z1
+        data = "tekst"; // do data
+        test = 4 * z1; // i test
+
+        console.log(test); // wyświetli w konsoli 20
+
+        // Polecenie if działa następująco:
+        // jeżeli warunek jest spełniony, czyli ma wartość true
+        // to wykonywany jest kod w nawiasach klamrowych
+        if (5 > 2) {
+            console.log("5 większe od 2");
+        } 
+
+        if (2 > 5) {
+            console.log("2 większe od 5");
+        }
+
+        var data = 4;
+        if (data <= 5) {
+            console.log("data mniejsze lub równe 5");
+        } else {
+            console.log("data ani mniejsze ani równe 5");
+        }
+
+        // wyświetli data ani mniejsze ani równe 5
+
+        var b = 8;
+
+        if (b == 3) {
+            console.log("b równe 3");
+        } else if (b == 7) {
+            console.log("b równe 7");
+        } else if (b == 8) {
+            console.log("b równe 8");
+        } else {
+            console.log("domyślny tekst jeśli inne warunki nie spełnione");
+        }
+
+        
+
+        // wyświetli:  b równe 8
+
+        var b = 8;
+        switch (b) {
+            case 3:
+                console.log("b równe 3");
+                break;
+            case 7:
+                console.log("b równe 7");
+                break;  
+            case 8:
+                console.log("b równe 8");
+                break;
+            default: 
+            console.log("domyślny tekst jeśli inne warunki nie są spełnione"); 
+        }
+
+        // wyświetli:  b równe 8
+
+        if (true) { // to samo co 1, -2, "tekst"
+            console.log("prawda"); // wyświetli "prawda"
+        }
+
+        if (-2) console.log("-2 ie jest zerem, więc wyświetli tekst");
+        if (false) console.log("false zatem ten tekst nigdy się nei wyświetli");
+        if (0) console.log("0 traktowany jest również jak false, więc tekst się nie pokaże");
+
+        var purchaseAmount = 10; 
+        var tax = 0;
+
+        // poniższy blok wykona się tylko jeśli purchaseAmount jest większe od zera
+        if (purchaseAmount > 0)
+        {  
+            tax = (purchaseAmount * 0.23); 
+            purchaseAmount = purchaseAmount + tax;
+        }
+
+        console.log(purchaseAmount); // wyświetli 12.3
+        
+        // liczby
+        var someInteger = 5; // liczba całkowita
+        var someDecimal = 3.2; // liczba dziesiętna
+
+        // tekst, piszemy w cudzysłowiu albo w apostrofach
+        var someString = "Witaj Świecie"
+        var otherString = 'Jakiś tekst';
+
+        // typy boolean, czyli true albo false
+        var messageSentFlag = false; 
+        var applicationStarted = true;
+
+
+        var i = 0;
+
+        while (i < 5) {
+            console.log(" liczba i: " + i); // wyświetli aktualną wartość i
+            i = i + 1; // z każdą iteracją zwiększamy i o jeden
+        }
+
+        var i = 0;
+
+        do {
+            console.log(" liczba i: " + i); // wyświetli aktualną wartość i
+            i = i + 1; // z każdą iteracją zwiększamy i o jeden
+        } while (i < 5)
+
+    // b++ czyli inkrementacja
+    // to to samo co b = b + 1
+    for (var b = 1; b < 4; b++) {
+        console.log(" pętla for oraz b: " + b);
+    }
+
+    // błąd 
+ /*   var text = " tekst w cudzysłowiach
+    nie może być  w wielu
+    liniach";
+*/
+
+    // ` to backticki i towrzą tzw template literals,
+    // powiemy o nich niedługo
+    var strMultiLine = `tekst
+    w wielu liniach
+    jest super!`;
+
+
+    // tworzymy tablicę i dodajemy od razu 4 elementy
+    var tab = [3, "tekst", 99, 12];
+
+    // pobieramy element z tablicy podając numer indeksu
+    // indeksy liczone są od 0, zatem drugi element ma indeks 1
+    console.log("Drugi element tablicy: " + tab[1]);
+
+    // Drugi element tablicy: tekst
+    var tab = [3, "tekst", 99, 12];
+
+    // definicja funkcji, przyjmuje dwa argumenty, które możemy
+    // użyć tylko wewntrz funkcji
+    function addition(a, b) {
+        var result = a + b;
+        console.log("Wynik dodawania: " + result);
+    }
+
+    // wywołanie funkcji z dwoma argumentami
+    addition (1, 2); // wyświetli:   Wynik dodawania: 3
+    addition (5, 3); // wyświetli:   Wynik dodawania: 8
+
+
+    function multiply(a, b) {
+        var result = a * b;
+        return result; // wynik zwracamy z funkcji dzięki return
+    }
+
+    var multiplyResult = multiply(5, 10); // wynik z funkcji przypisze do zmiennej
+    console.log("Wynik mnożenia: " + multiplyResult); // wyświetli:   Wynik mnożenia: 50
+
+    // funkcja division nie może być użyta, zwraca błąd
+    console.log( division(30, 10) ); // Uncaught TypeError: division is not a function
+
+    // wyrażenie funkcyjne
+    var division = function (a, b) {
+        return a / b;
+    }
+
+    // po zadeklarowaniu zwraca prawidłowo 10
+    console.log( division(30, 10) ); 
+
+
+    // definiujemy 
+    function Car(brand, model, year) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+
+        this.printInfo = function(){
+            console.log("Auto:" + this.brand + " " + this.model + ", rocznik:" + this.year);
+        }
+    }
+
+    var charger = new Car('Dodge', 'Charger', 1973);
+    charger.printInfo(); // Auto:Dodge Charger, rocznik:1973
+    var jeep = new Car('Jeep', 'Wrangler', 2002);
+    charger.printInfo(); // Auto:Jeep Wrangler, rocznik:2002
+
+
+    var car = {
+        brand: 'Chevrolet',
+        model: 'Corvette',
+        year: 1967,
+        printInfo: function(){
+            console.log("Auto:" + this.brand + " " + this.model + ", rocznik:" + this.year);
+        }
+    }
+
+    car.printInfo(); // Auto:Chevrolet Corvette, rocznik:1967
+    car.brand = "Ford";
+    car["model"] = "mustang";
+    car.printInfo(); // Auto:Ford mustang, rocznik:1967
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

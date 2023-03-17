@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+var CarPlant = {
+    numProducedCars: 0,
+    carsArr: [],
+
+    makeCar: function (brand, model, year) {
+        var car = {
+            brand: brand,
+            model: model,
+            year: year
+        };
+        
+        this.numProducedCars++;
+        this.carsArr.push(car); 
+
+        return car;
+    },
+
+    printStats: function () {
+        console.log("Ilość wyprodukowanych aut: " 
+         + this.numProducedCars );
+    }
+};
+
+var dodge = CarPlant.makeCar("dodge", "viper", 1996);
+var jeep = CarPlant.makeCar("jeep", "wrangler", 2019);
+CarPlant.printStats();
+
+
+
+ /* koszyk zakupów */
+ let ShoppingCart = {
+    items: [],
+    add: function (name, price) {
+        this.items.push({
+            name: name,
+            price: price
+        });
+    },
+
+    removeByIndex: function (i) {
+        if (i >= this.items.length) return;
+        this.items.splice(i, 1);
+    },
+
+    printInfo: function () {
+        let finalPrice = 0;
+        for (let i = 0; i < this.items.length; i++) {
+            let element = this.items[i];  
+            finalPrice += element.price;
+
+            console.log("W koszyku: " + element.name + ", cena: " + element.price);
+        }  
+
+        console.log("Wartość koszyka: " + finalPrice);
+    }
+};
+
+ShoppingCart.add("TV", 1000);
+ShoppingCart.add("radio", 75);
+ShoppingCart.printInfo();
+
+ShoppingCart.removeByIndex(0);
+
+ShoppingCart.add("phone", 1500);
+ShoppingCart.add("TV", 1000);
+ShoppingCart.printInfo();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

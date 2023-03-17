@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // FUNKCJA NATYCHMIASTOWA / ANONIMOWA WYWOŁYWANA NATYCHMIAST
+        // funckja ogranicza zakres użytych zmiennych/funckji do funckji natychmiastowej. Chroni to skrypt przez kolizjami
+        (function(){
+            const data = 10
+            function bar(){}
+          
+        }()) //wyowłać można przed nawiasem i po nawiasie
+
+        // (function() {
+        //     const data = 10
+        //     function bar2(){}
+        // })()
+
+        // console.log(data); //caught ReferenceError: data is not defined
+        // console.log(bar2); //ReferenceError: bar is not defined
+
+
+        const result = (function(){
+            const innerData = 'inner value' 
+            // console.log('hej');
+
+            function innerFunc(){
+                console.log(innerData);
+            }
+            return {
+                data: 10,
+                str: 'text',
+                bar: innerFunc
+            }
+
+        })()
+        console.log(result)
+        console.log(result.bar());;
+ 
+    </script>
+</body>
+</html>

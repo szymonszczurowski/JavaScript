@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // RETRUN ZWRACA WARTOŚĆ Z FUNCKJI oreaz POZWALA NA PRZERWANIE DZIAŁANIA FUNKCJI
+
+        function foo() {} // domyślnie undefined
+        function bar() {return} // undefined
+        function test() {return 1} // 1
+        function check() {return {a:10}} // a:10
+        console.log(foo(), bar(), test(), check());
+
+        function test2(x){
+            if(x > 10) return 'something'
+            if(x <= 10) return 'anything'
+        }
+        console.log(test2(11));
+
+    </script>
+</body>
+</html>

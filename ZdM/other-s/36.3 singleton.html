@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+// Singleton tworzymy zwykle na bazie funkcji natychmiastowej
+
+let Singleton = (function(){
+    let instance = null;
+    let privLanguage = "en";
+
+    function Configuration() { 
+        this.getLanguage = function() { return privLanguage;  }
+        this.setLanguage = function(lang) { privLanguage = lang;  }
+    }
+
+    return {
+        getInstance: function () {
+            if(!instance) {
+                instance = new Configuration();
+            }
+            return instance;
+        }
+    }
+})();
+
+Singleton.getInstance().getLanguage(); // en
+var config = Singleton.getInstance();
+config.setLanguage("pl");
+config.getLanguage(); // pl
+
+var config2 = Singleton.getInstance();
+config.getLanguage(); // pl
+
+ 
+
+let Logger = (function(){
+    let instance = null;
+    let logData = [];
+
+    function logMsg(str){
+        logData.push({
+            msg: str,
+            date: new Date()
+        });
+    }
+
+    function initLogger() { 
+        function getLogLength() { return logData.length; }
+        return {
+            log: logMsg,
+            getLogLength: getLogLength
+        }
+    }
+
+    return {
+        getInstance: function () {
+            if(!instance) {
+                instance = initLogger();
+            }
+            return instance;
+        }
+    }
+})();
+
+const logger = Logger.getInstance();
+logger.log("msg 1");
+logger.log("msg 2");
+logger.log("msg 3");
+logger.getLogLength(); // 3
+
+
+// Klasa ES6 jako Singleton
+class DBConnection {
+    dbName = "defaultDB";
+    constructor(dbName) {
+        if(DBConnection.exists){
+            console.log("DBConnection exists");
+            return DBConnection.instance;
+        }
+
+        DBConnection.exists = true;
+        DBConnection.instance = this;
+        this.dbName = dbName;
+
+        return this;
+    }
+
+    getFromDB(recordId) {
+        return { id: recordId, data: "...", dbName: this.dbName };
+    } 
+}
+
+const dbConection = new DBConnection("companies");
+dbConection.getFromDB(1); // {id: 1, data: "...", dbName: "companies"}
+const dbConection2 = new DBConnection("companies 23423"); // DBConnection exists
+dbConection2.getFromDB(1); // {id: 1, data: "...", dbName: "companies"}
+
+
+
+</script>    
+    
+</body>
+</html>

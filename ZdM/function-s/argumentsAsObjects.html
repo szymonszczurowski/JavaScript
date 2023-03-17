@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        function bar(parms){
+            if(parms.hasOwnProperty('data')) console.log(parms.data);
+            const info = parms.hasOwnProperty('info') ? parms.info : 'Domyślne info'
+            const str = parms.hasOwnProperty('str') ? parms.str : 'Domyślna wartość str'
+            console.log(info, str);
+        }
+
+        const obj = {
+            data: 22, 
+            info: 'txt',
+            addr1: 'Kraków'
+        }
+
+        bar(obj)
+
+        // bar({data: 22, info: 'txt', addr1: 'Kraków'})
+
+        function bar2(parms){
+            // ZAMIAST hasOwnProperty można użyć operatora OR i jęsli zwróci TRUTHY to pierwszy parametr jest
+            const info = parms.info || 'domyślne info'
+            const str = parms.str || 'domyślne str'
+            console.log(info, str);
+        }
+    </script>
+    
+</body>
+</html>

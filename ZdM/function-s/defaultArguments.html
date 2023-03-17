@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // Jeśli nie przekażemy właśnych argumentów podczas wywołania to wykorzystane zostaną domyślne wartości
+        function makeConnection(host = 'www.duckduckgo.com', port = 80, method = 'HTTP'){
+            console.log(`host: ${host}, port ${port}, method ${method}`);
+        }
+
+        makeConnection() //host: www.duckduckgo.com, port 80, method HTTP
+
+        makeConnection(undefined) //host: www.duckduckgo.com, port 80, method HTTP
+
+        makeConnection('www.google.com') //host: www.google.com, port 80, method HTTP
+
+        makeConnection('www.facebook.com', 443) //host: www.facebook.com, port 443, method HTTP
+
+
+        // JAKO DOMYŚLNA WARTOŚĆ MOŻE BYĆ WYWOŁANIE FUNKCJI
+        console.log('================================');
+
+        function test(arg = increment()){
+            console.log(arg);
+        }
+
+        let a = 0
+        function increment() {
+            return a++
+        }
+
+        test() // 0
+        test() // 1
+        test('test') // test
+        test() // 2
+
+
+    </script>
+
+  
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function Car(brand, model, year) {
+            this.brand = brand;
+            this.model = model;
+            this.year = year;
+            this.printInfo = function () {
+                console.log("Auto " + this.brand + " " + this.model
+                + " " + this.year);
+            } 
+            this.setYear = function (newYear) {
+                this.year = newYear;
+            }
+        }
+
+        var jeep = new Car("Jeep", "Wrangler", 1996);
+        var jeep2 = new Car("Jeep", "Wrangler", 1998);
+        var dodge = new Car("Dodge", "Viper", 2001);
+
+        dodge.printInfo();
+
+        // brak new zaśmieci nam globalną przestrzeń nazw co może skończyć się
+        // konfliktami nazw i potencjalnymi problemami:
+        // var ford =  Car("Ford", "Mustang", 1967);
+        // dlatego zawsze pamiętajmy o używaniu new przy tworzeniu nowych
+        // instancji obiektów tworzoych za pomocą konstruktora
+        var ford = new Car("Ford", "Mustang", 1967);
+        
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

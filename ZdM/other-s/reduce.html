@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //    Array.prototype.reduce()
+        // Metoda reduce() wykonuje dostarczoną przez użytkownika funkcję callback "reducer" na każdym elemencie tablicy, w kolejności, przekazując wartość zwrotną z obliczenia na poprzednim elemencie.Końcowym wynikiem uruchomienia reduktora na wszystkich elementach tablicy jest pojedyncza wartość.
+
+        // Przy pierwszym uruchomieniu callback nie ma "wartości zwrotnej poprzedniego obliczenia".Jeśli zostanie dostarczona, to w jej miejsce może zostać użyta wartość początkowa.W przeciwnym razie element tablicy o indeksie 0 jest używany jako wartość początkowa i iteracja rozpoczyna się od następnego elementu(indeks 1 zamiast indeksu 0)
+
+        const array1 = [1, 2, 3, 4];
+
+        // 0 + 1 + 2 + 3 + 4
+        const initialValue = 0;
+        const sumWithInitial = array1.reduce(
+            (accumulator, currentValue) => accumulator + currentValue,
+            initialValue
+        );
+
+      
+
+        console.log(sumWithInitial);
+// Expected output: 10
+
+
+    </script>
+
+</body>
+
+</html>

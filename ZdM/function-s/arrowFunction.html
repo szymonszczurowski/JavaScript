@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // WYRAŻENIE FUNKCYJNE
+         const exprFoo = function(a,b){
+            console.log(a, b);
+         }
+
+         // FUNCKJA STRZŁKOAW
+
+         const arrowBar = (a,b) => console.log(a,b);
+
+         const test = (a,b) =>  {return a * b}
+         const multiply = (a,b) => a * b
+
+         const makeObj = () => {return {a:b, b:10}}
+         const arrowObk = () => ({a:b, b:10})
+
+         [3,4,8].reduce((accumulator, currentValue) => accumulator + currentValue)
+
+         const arr = [1,2,3,4,5,6,7,8,9]
+         const dividedBy = arr.filter(
+            v => v % 3 === 0 // jełśi true będzei w zwracanej tablicy
+         )
+         console.log(dividedBy);
+
+
+         
+         //problem this w zwykłej funkcji
+
+         window.data = 99
+         function Bar(){
+            this.data = 'test'
+            this.printInfo = function(){
+                let that = this // przypisanie this do do zmiennej, żeby poradzić sobie z tym problemem, ale teraz dzięki funckji strzałkowej jest to prostsze
+                setTimeout(function(){ //this straci konteskt obikety, będzie windows
+                    console.log(this.data); // pokaże 99 z windows
+                    console.log(that.data); // pokaże test z Bar
+                })
+            }
+         }
+         const bar = new Bar()
+         bar.printInfo()
+
+      // rozwiązanie problemu z this dzięki fucnkji strzałkowej
+
+         window.data = 99
+         function Foo(){
+            this.data = 'test'
+            this.printInfo = function(){
+                setTimeout( () => { //this ma kontekst otoczenia
+                    console.log(this.data); // pokaże test z Foo
+
+                })
+            }
+         }
+         const foo = new Foo()
+         foo.printInfo()
+         
+
+    </script>
+</body>
+</html>

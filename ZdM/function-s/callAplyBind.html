@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // CALL - pozwala na wywołanie funkcji z podanymi this oraz argumentami. This określa obiekt jako kontekst, gdzie jest użyty kod
+
+        let obj = {
+            name: 'Ola',
+            print: function (surname) {
+                console.log(this.name, surname);//this wskazuje na obiekt obj z któego pobrana jest wartość name
+            }
+        }
+
+        obj.print() // Ola
+
+        // call pozwala na zmianę kontekstu w jakim wywoływana jest funkcja
+        let user = {name: 'Rafał'}
+        obj.print.call(user, 'Kot') // Rafał kot
+
+        console.log('-----------------------');
+        // APPLY - tak sam jak CALL, ale przyjmuje talbiće argumentów do funckji
+
+        let obj2 = {
+            name: 'Ola',
+            print: function (surname, city) {
+                console.log(this.name, surname, city);//this wskazuje na obiekt obj z któego pobrana jest wartość name
+            }
+        }
+
+        obj2.print('Kot', 'Gdańsk') // Ola Kot Gdańsk
+
+        let user2 = {
+            name: 'Karol'
+        }
+       const rej =  obj2.print.call(user2, 'Kot', 'Kraków') // Karol Kot Kraków
+        obj2.print.apply(user2, ['Kot', 'Kraków']) // Karol Kot Kraków
+
+        console.log('-----------------------');
+        //BIND - ES5 działa podbne jak CALL, APPLY, ale wskazuje wprost kontekst this wywołanej funckji
+
+        let obj3 = {
+            name: 'Ola',
+            print: function (surname, city) {
+                console.log(this.name, surname, city);//this wskazuje na obiekt obj z któego pobrana jest wartość name
+            }
+        }
+
+        obj3.print('Kot', 'Warszawa') // Ola Kot Warszaawa
+
+        let user3 = {name: 'Kacper'}
+
+        // pozwala na wielorkotne wywyołanie
+        const rInfo = obj3.print.bind(user3, 'Musk', 'Gdańsk')
+        rInfo() // na stałe przypisane this i argumenty
+        rInfo()
+    </script>
+
+</body>
+
+</html>

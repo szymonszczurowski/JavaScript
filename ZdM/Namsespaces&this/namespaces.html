@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // NAMESPACE - PRZESTRZENIE NAZWA POZWALAJĄ NA UNIKANIE KONFLIKTÓW NAZW: ZMIENNYCH, OBIEKTÓW ORAZ FUNKCJI W GLOBALNEJ PRZESTRZENI NAZW
+        // W js nie jest wbudowa, ale można jaż zasmulować 
+        // LEPSZA ORGANIZACJA KODU, GRUPOWANI GO, ORAZ UNIKLANA IDENTYFIKACJA POSZCZEGÓŁNCYH CZĘSCI
+        //ZAMIAST WIELU GLOBLANYCH MOŻNA STWORZYC JEDNĄ DLA CAŁEJ APLIKAJCI 
+        //https://developer.mozilla.org/en-US/docs/Glossary/Namespace
+
+        // NAMESPACE - prefixy (już raczej mało się korzysta )
+
+        var myApp_propertyA = {
+            data: 'text',
+            num: 10
+        }
+
+        var myApp_propertyA = {
+            a: 12,
+            b: 99
+        }
+
+        function myApp_method() { }
+        function myApp_method2() { }
+        function myApp_show() { }
+        function myApp_pring() { }
+
+        // NAMESPACE - jeden blobalny obiekt
+
+        const MYAPP = {
+            products: [],
+            Product: function (name, price) { //konstruktor
+                this.name = name
+                this.price = price
+                this.printInfo = function () {
+                    console.log(this.name, this.price)
+                }      
+            },
+
+            addProduct: function(name, price) {
+                        let p = new MYAPP.Product(name, price)
+                        this.products.push(p)
+                    }
+        }
+
+        MYAPP.addProduct('telefon', 1500)
+        MYAPP.products[0].printInfo()
+
+        // można łatwo rozszerzać 
+
+        MYAPP.utils = {
+            parseData: function(){},
+            toString: function(){},
+            export: function(){}
+        }
+
+        MYAPP.config = {
+            language: 'English',
+            theme: {
+                skin: 'dark'
+            },
+            changeTheme: function() {}
+        }
+
+        // SPRAWDZENIE CZY TEN GLOBALNY OBIEKT ISTNIEJE
+        //jeśłi istnieje to jest przypisywny do zmiennje 
+        //jeśli nie to przypisywany jest pusty obiekt
+        const MYAPP2 = MYAPP || {}
+
+        //DRUGI SPOSÓB
+
+        //MYAPP KONWERTOWANY DO BOOLEAN ORAZ NEGACJA
+        //null/undefined da false, negacja true przez co przypisze nowy obiket
+        //truthy value da true, negacja da false i kod omija warunek if
+
+        if(!MYAPP) MYAPP = {}
+        // LUB
+        const MYAPP3 = MYAPP === undefined ? {} : MYAPP
+
+
+        
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // NAMESPACE INJECTION - wstrzykiwanie zmiennych i metod do namespace za pomocą this jako namespace proxy
+
+        var myApp = myApp || {};
+
+            (function () {
+                let data = 25;
+                this.publicProperty = 'some text' //this wskazuje na obiket myApp
+                this.publicGetData = function () {
+                    return data
+                }
+                this.utils = this.utils || {}
+            }).apply(myApp);
+
+        console.log(myApp.publicGetData());
+
+        //dodatnie utils
+        (function () {
+            let arr = [1, 2, 3];
+            this.check = function () { }
+            this.getArr = function () {
+                return arr
+            }
+        }).apply(myApp.utils);
+
+        console.log(myApp.utils.getArr());
+
+    </script>
+</body>
+
+</html>

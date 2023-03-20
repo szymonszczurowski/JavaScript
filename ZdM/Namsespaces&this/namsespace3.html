@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // W malych aplikacjach Funkcje natychmiastowe jako moduł
+        
+        const MYAPP = (function(){
+            let data = 99
+
+            function getData(){
+                return data
+            }
+            function setData(newData){
+                data = newData
+            }
+
+            return {
+                getOldData: getData, 
+                setNewData: setData,
+                text: 'str',
+                obj: {a:8, b:7}
+            }
+        })()
+
+        console.log(MYAPP);
+        console.log(MYAPP.getOldData());
+        console.log(MYAPP.data);
+
+        MYAPP.setNewData(111)
+        console.log(MYAPP.getOldData());
+
+
+    </script>
+</body>
+</html>

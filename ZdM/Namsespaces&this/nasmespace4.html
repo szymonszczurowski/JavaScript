@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // FUNKCJE NATYCHMIASTOWE - NAMESPACE PRZEKAZYWANY JAKO OBIEKT
+
+        (function (namespace) {
+            let privData = 99
+            function privMethod1() {
+                return privData
+            }
+
+            // namespace.getData = function(){
+            //     return privMethod1()
+            // }
+            namespace.getData = privMethod1
+            namespace.propertyNum = 5
+
+        })(window.namespace = window.namespace || {})
+
+        console.log(namespace);
+        console.log(namespace.getData());
+
+        //ROZSZERZENIE NAMESPACE O KOLEJNĄ FUNKCJĘ NATYCHMIASTOWĄ
+        console.log('Rozszerzenie');
+        
+        // tutaj operujemy wyłącznie na nowej funckji natychmiastowe, ale z poprzedniej również można korzytać
+        (function (namespace) {
+            let privArr = [1, 2, 3]
+            namespace.getArr = function(){
+                return privArr
+            }
+
+            namespace.addElement = function(el) {
+                privArr.push(el)
+            }
+        })(window.namespace = window.namespace || {})
+
+        console.log(namespace);
+        console.log(namespace.getArr());
+
+        namespace.addElement(100)
+        console.log(namespace.getArr());
+
+
+
+        // do wcześniej zadeklarowanych zmiennych nie mamy dostępu, ponieważ są ala "PRYWATNE"
+        (function (namespace) {
+            namespace.showArr = function(){
+                return privArr
+            }
+            namespace.showElement = function(el) {
+                privArr.push(el)
+            }
+        })(window.namespace = window.namespace || {})
+
+        console.log(namespace.showArr());
+        
+    </script>
+
+</body>
+
+</html>

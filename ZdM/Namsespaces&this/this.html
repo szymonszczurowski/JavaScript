@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // THIS - wskazuje na context, czyli kontekst w kótrym wywoływany jest pod. Podstaowym kontekstem jest globalny kontekst
+
+        console.log(this);
+        console.log(this === window); //true
+
+        console.log('===========');
+
+        // do globalnego kontesktu można odwołać sie za pomocą globalThos
+        console.log(window === globalThis); //true
+        console.log(this === globalThis); //true
+        // w pętlach, instrukjach warunkowych this wksauzjena kontkest globalny
+        console.log('===========');
+
+        if (1 == 1) {
+            console.log(this);
+        }
+
+        console.log('===========');
+
+        // this - kontekst funkcji
+        // jeśli funkcja nie jest częścią obiektu to wywolana ma this ustawiony na obiekt globalny
+
+        const bar = () => {
+            console.log('bar this: ' + this); //bar this: [object Window]
+        }
+        bar()
+
+        console.log('===========');
+
+        // w strict mode będzie undefined w deklaracji funkcji, a w funckji strzłkowej wskarze true
+        function foo() {
+            'use strict'
+            console.log('z strict mode ' + this);
+            console.log(this === window); //false
+        }
+        foo()
+
+        const foo2 = () => {
+            'use strict'
+            console.log('z strict mode ' + this);
+            console.log(this === window); //false
+        }
+        foo2()
+
+        console.log('===========');
+
+        // funckja w kontekście obiektu
+
+        const person = {
+            name: 'Szymon',
+            city: 'Gdańsk',
+            info: function () {
+                //this wskazuje na obiekt person
+                console.log(this.name, this.city);
+            }
+
+        }
+        person.info()
+
+        console.log('===========');
+
+        // this - prywatna funckja, this wskazuje na window
+
+        const car = {
+            name: 'Dodge charger',
+            year: 1970,
+            category: 'muscle car',
+            printInfo: function () {
+                function showCategory() {
+                    console.log('Kategoria: ' + this.category); //undefined
+                    console.log('this === window' + this === window); //false
+                }
+                console.log(this.name, this.year)
+                showCategory()
+            }
+        }
+
+        car.printInfo()
+
+        console.log('===========');
+
+        // this - kontekst funckji z obiketu, call, apply
+        // funckja call i apply pozwala zmienić this na inny obiekt
+
+        const person2 = {
+            name: 'Szymon',
+            city: 'Gdańsk',
+            info: function (streetCode) {
+                //this wskazuje na obiekt person
+                console.log(this.name, this.city, streetCode);
+            }
+
+        }
+        person2.info('00-000')
+
+        let kacper = {
+            name: 'Kacper Kowalski',
+            city: 'Szczecin'
+        }
+        const hej = person2.info.call(kacper, '00-000')
+        
+        person2.info.apply(kacper, ['11-111'])
+
+        
+        console.log('===========');
+        //this - kontekst funkcji z obiketu, bing
+        // funckja bind przypisuje na stałke kontekst obiektu do metody // obiekt sam w sobie się nie zmienia
+        const person3 = {
+            name: 'Szymon',
+            city: 'Gdańsk',
+            info: function (streetCode) {
+                //this wskazuje na obiekt person
+                console.log(this.name, this.city, streetCode);
+            }
+
+        }
+        person3.info('00-000')
+
+        let kacper2 = {
+            name: 'Kacper Brzeziński',
+            city: 'Szczecin'
+        }
+        let kacper2PringMethod = person3.info.bind(kacper2, '00-000')
+        kacper2PringMethod()
+
+        
+        console.log('===========');
+
+  
+
+
+    </script>
+
+</body>
+
+</html>

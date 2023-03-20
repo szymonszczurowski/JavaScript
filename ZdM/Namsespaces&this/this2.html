@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    ERFERF
+    <script>
+        // this, a funckje nasłuchujące zdarzenia 
+        //this skazuje na kliknięy elmenet html - body
+        let body = document.getElementsByTagName('body')[0]
+        let body2 = document.getElementsByTagName('body')[0]
+        let body3 = document.getElementsByTagName('body')[0]
+        let body4 = document.getElementsByTagName('body')[0]
+
+        body.addEventListener('click', function(event) {
+            //this wskazuje na kliknięty element, body dokumnetu html
+            console.log(this);
+        })
+        
+
+        // WYKORZYSTANIE SETTIMEOUT
+
+        body2.addEventListener('click', function(event) {
+            // seTimeot wywoła podaną funkcję po sekundzie, ale będzie to wywołanie w pętli zdarzeń w innym kontekście, obiektu window
+            setTimeout(function(){
+                console.log(this == window);//true
+                console.log(this);
+            }, 1000)
+        })
+
+        //MOŻNA TEMU ZAPOBIEC
+        body3.addEventListener('click', function(event) {
+            let self = this // przechowanie referecnji do this (body) dla setTimeout
+            setTimeout(function(){
+                console.log(self == window);//false
+                console.log(self);
+            }, 1000)
+        })
+
+        //NAJELPSZYM SPOSOBEM JEST WYKORZYSTANIE FUNCKJI STRZAŁKOWEJ
+
+        body4.addEventListener('click', function(event) {
+            setTimeout(() =>{
+                console.log(this == window);//false
+                console.log(this);
+            }, 1000)
+        })
+
+
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // THIS KONSTRUKTOR
+
+        function Car(brand, name){
+            this.brand = brand
+            this.name = name
+            this.printInfo = function(){
+                console.log(this.brand, this. name);
+            }
+        }
+
+        let dodge = new Car('dodge', 'viper') // jęsli nie będzie new to doda sie do obiektu window
+        dodge.printInfo()
+
+        let showCarInfo =  dodge.printInfo //utrata kontekstu this
+        showCarInfo() // undefined
+        showCarInfo.apply(dodge) // pontiac camaro // można przypisać za pomocą apply
+    </script>
+    
+</body>
+</html>

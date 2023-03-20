@@ -6,31 +6,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
 </head>
 
 <body>
 
     <script>
 
-        //AUTOMATYCZNE ZAGNIEŻDŻANOE PRZESTRZENIE NAZW
-        function extendNS(ns, nsStr) {
-            let nsParts = nsStr.split('.'), parent = ns
-            if (nsParts[0] == 'MYAPP') nsParts = nsParts.slice(1) // kasuje pierwszy element
-
-            for (let i = 0; i < nsParts.length; i++) {
-                let nsName = nsParts[i]
-                if (typeof parent[nsName] == 'undefined') {
-                    parent[nsName] = {}
+        var MYAPP1 = {
+            utils: {
+                drawing:{
+                    context2d: {}
                 }
-                parent = parent[nsName]
+            }
+        }
+        // MOŻNA ROBIĆ TAKIE RZECZY ZA POOMCĄ FUNKCJ >>
+        var MYAPP = MYAPP || {} //Jeśłi nie istnieje to przypisać pusty obiekt
+        // tworzenie zagnieżzonej przestrzeni nazw i zwracanie obiekt na końcu zdefiniowanej przestrzeni nazw
+        var math = extendNS(MYAPP, 'MYAPP.utils.math') //ścieżka
+        function extendNS(ns, nsStr){
+            let nsParts = nsStr.split('.'), parent = ns // podział na podstawie kropki
+            console.log(nsParts);
+            if(nsParts[0] == 'MYAPP') nsParts = nsParts.slice(1) //sprawdza czy na pierwszym indexie jest string MYAPP, jeśłi tak to wycinami pierwszy element
+            for(let i = 0; i < nsParts.length; i++){
+                let nsName = nsParts[i]
+                console.log(nsName);
+                // Sprawdza czy MYAPP ma okreśłoną właściwość, jeżeli nie istnieje zwraca undefined i w tedy możemy stworzyć nowy obietk
+                if(typeof parent[nsName] == 'undefined') {
+                    parent[nsName] = {}
+                    
+                }
+                parent = parent[nsName] 
             }
             return parent
         }
 
-        var MYAPP = MYAPP || {}
-        const math = extendNS(MYAPP, 'MYAPP.utils.math')
-        math.sin = function () { }
-        math.cos = () => { }
+        console.log(MYAPP);
+
+        var math = extendNS(MYAPP, 'MYAPP.utils.math')
+
+        console.log(math);
+
+        var mathSprites = extendNS(MYAPP.utils.math, 'methods2d.sprites')
+
+        console.log(mathSprites);
+        console.log(math);
+        console.log(MYAPP);
+
+        math.cos = function(){}
+        math.sin = function(){}
+        console.log(MYAPP);
+
+
     </script>
 </body>
 

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let source = {
+            num: 10,
+            str: 'Hello',
+            flag: true,
+            arr: [1, { data: 99 }, 2, 3],
+            date: new Date(2022, 10, 20),
+            obj: {
+                a: 9,
+                b: 'World'
+            }
+        };
+
+        const result = deepCopy(source);
+
+        function deepCopy(obj) {
+            let copy;
+
+            // zwrócenie prymitów
+            if (obj === null || typeof obj !== 'object')
+                return obj;
+
+            if (obj instanceof Date) {
+                copy = new Date();;
+                copy.setTime(obj.getTime());
+                return copy;
+            }
+
+            if (obj instanceof Array) {
+                copy = [];
+                for (let i = 0; i < obj.length; i++) {
+                    copy[i] = deepCopy(obj[i])
+                }
+                return copy;
+            }
+
+            if (obj instanceof Object) {
+                copy = {};
+                for (key in obj) {
+                    //rekurencja
+                    copy[key] = deepCopy(obj[key]);
+                }
+                return copy;
+            };
+        };
+
+        console.log(source);
+
+        console.log(result.arr === source.arr); // false // czyli głęboka kopia się udała
+        console.log(result.obj === source.obj); // false // czyli głęboka kopia się udała
+        console.log(result.date === source.date); // false // czyli głęboka kopia się udała
+        console.log(result.arr === source.arr); // false // czyli głęboka kopia się udała
+
+        console.log(result);
+
+        console.log(source === result);
+
+
+    </script>
+</body>
+
+</html>

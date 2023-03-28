@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Thing(name){
+            this.name = name
+        }
+
+        Thing.prototype.weight = 0;
+        const telephone = new Thing('phone')
+        console.log(telephone.weight); // 0
+
+        //przesłonięcie
+        telephone.weight = 3
+        console.log(telephone.weight); // 3
+        
+        //usunięcie przesłonięcia
+        delete telephone.weight
+        console.log(telephone.weight); // 0
+        
+    </script>
+</body>
+</html>

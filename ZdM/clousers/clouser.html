@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Domknęcie jest to zasięg stworzony przez funkcję wraz z otaczającym ją środkowiskiem czyli zmiennymi oraz innymi funkcjami, które oddzielone są razem d reszty kodu
+
+        // Najprostszy przykłąd - zwykła funkcja
+
+        let b = 99 // zmienna globalana
+        let c = 20
+        function foo(){
+            let b = 10; // osobna zmeinna lokalna b
+            console.log(b); // 10
+            console.log(c); // 20
+        }
+        foo()
+    </script>
+</body>
+</html>

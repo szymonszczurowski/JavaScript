@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Object.create(proto, properties) - nowy obiket wraz z prototypem
+
+        const player = {
+            name: 'unknow',
+            login: function () {
+                console.log(this.name + ' zalogowany');
+            },
+            logut: function () {
+                console.log(this.name + ' wylogowany');
+            },
+            printInfo: function () {
+                console.log(this.name, this.countru, this.points);
+            }
+        }
+
+        // bot ma protoyp z obiektami player oraz doane name i county jako właściwości
+        const bot = Object.create(player, {
+            name: { value: 'cpu player 1' }, // w przypadku użycia Object.create trzeba skorzystać z value
+            county: { value: 'n/a' }
+        })
+        bot.points = 10
+
+        bot.login()
+        bot.logut()
+        console.log(bot);
+    </script>
+</body>
+
+</html>

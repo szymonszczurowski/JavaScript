@@ -7,6 +7,11 @@
     <title>Document</title>
 </head>
 <body>
+
+    <div class="vehicle">porsche</div>
+    <div class="vehicle">mercedes</div>
+    <div class="vehicle">bmw</div>
+    <div class="vehicle">ford</div>
     <script>
         // Domknęcie jest to zasięg stworzony przez funkcję wraz z otaczającym ją środkowiskiem czyli zmiennymi oraz innymi funkcjami, które oddzielone są razem d reszty kodu
 
@@ -20,6 +25,35 @@
             console.log(c); // 20
         }
         foo()
+
+        console.log('========================');
+        // POBLEMY CLOUSERS I ROZWIĄZANIE ICH
+
+        for(var i = 0;  i < 3; i++){
+            setTimeout(function(){
+                console.log(i);
+            }, 500)
+        } // same 3
+
+        // TRZBA UŻYĆ LET
+
+        for(let i = 0;  i < 3; i++){
+            setTimeout(function(){
+                console.log(i);
+            }, 500)
+        } // 0 1 2
+
+
+        // DOM
+
+        const cars = document.querySelectorAll('.vehicle')
+        for(let i = 0; i< cars.length; i++){
+            cars[i].onclick = function(){
+                console.log('car i:' + i, cars[i]);
+                cars[i].style.color = 'red'
+            }
+        }
+
     </script>
 </body>
 </html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Album {
+            constructor(name, band){
+                this.name = name
+                this.band = band
+            }
+
+            printInfo(){
+                console.log(this.band, this.name);
+            }
+        }
+
+        const rhcp = new Album('Californication', 'RHCP')
+        rhcp.printInfo()
+
+
+        // rozszerzanie 
+        console.log('-==================-');
+
+        class DigitalAlbum extends Album{
+            constructor(name, band, shop){
+                super(name, band)
+                this.shop = shop
+            }
+
+            printInfo(){
+                super.printInfo()
+                console.log(this.shop);
+            }
+        }
+
+        const digitRhcp = new DigitalAlbum('Californication', 'RHCP', 'Youtube')
+        digitRhcp.printInfo()
+
+        console.log(digitRhcp);
+    </script>
+
+</body>
+
+</html>

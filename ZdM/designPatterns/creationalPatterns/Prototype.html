@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Prototype pattern 
+        /*
+            Dziedziczenie prototypwe pozwala na współdzielnie funkcji oraz zmiennych w JavaScript pomiędzy insancjami obiektów co zmneijsza zapotrzbowanie na mięć, nie muszą być przechowywanie w każdej instacnji
+        */
+            function User(name, city){
+                this.name = name
+                this.city = city
+            }
+            User.prototype.printInfo = function(){
+                console.log(this.name, this.city);
+            }
+
+            const user = new User('Ania', 'Warszawa')
+            user.printInfo()
+
+            console.log('-===============-');
+         /*
+            Wzorzec na bazie prototypu pozwala na tworzenie obiketu, który będzie podstawą dla innych obiektów diżeki dziedziczeniu na bazie prototypów
+            TERAZ ROBI SIĘ TO PO PROSTU ZA POMOCĄ Class
+        */
+
+        function Shop(name, address){
+            this.name = name
+            this.address = address
+            this.shoppingCart = []
+        }
+
+        Shop.prototype.addToCart = function(name, price){
+            console.log(name, price);
+        }
+
+        function Pharmacy(name, address){
+            Shop.call(this, name, address)
+        }
+
+        // dziedziczenie wszystkich funckji z prototypu sklep
+        Pharmacy.prototype = Object.create(Shop.prototype)
+        Pharmacy.prototype.constructor = Pharmacy // żeby był prawdziwy
+        Pharmacy.prototype.processRecipe = function(recipe){
+            console.log('do something with recipe');
+        }
+
+        const p = new Pharmacy('Apteka 1', 'Gdańsk')
+        p.addToCart('Witamina D3', 30)
+        p.processRecipe('recepta')
+
+        console.log(p);
+
+    </script>
+</body>
+</html>

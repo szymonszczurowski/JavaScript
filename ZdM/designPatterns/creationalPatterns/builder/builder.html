@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Builder jest to elastyczny wzorzec majacy na celu budowanie skomplikowanyhc obiektów, krok po korku co upraszcza cały prcoes. Wszelkie detale tworzenia obiektu są ukryte przed klientem 
+
+        function Task(name, description, isDone){
+            this.name = name
+            this.description = description
+            this.isDone = isDone
+        }
+
+        // Do budowy wykorzystywny zostanie TaskBuilder, który pozwala na tworzenie obiektu w etapach. Każda funkcja dodająće będzie zwracła this, dzieki czemu powstanie łańcuch wywołań funckji tzw.fluent API
+
+        function TaskBuilder(){
+            let name, description, isDone
+
+            return{
+                setName: function(name){
+                    this.name = name 
+                    return this
+                },
+
+                setDescription: function(description){
+                    this.description = description
+                    return this
+                },
+
+                setDone: function(isDone){
+                    this.isDone = isDone
+                    return this
+                },
+
+                build: function(){
+                    return new Task(this.name, this.description, this.isDone)
+                },
+            }
+        }
+        
+        let task = new TaskBuilder().setName('task 1').setDescription('opis').setDone(true).build();
+
+    </script>
+</body>
+</html>

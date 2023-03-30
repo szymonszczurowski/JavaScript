@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Przykład zdolnosć kredytowa
+
+        function CreditRequest(data) {
+            this.data = data
+        }
+
+        function BackgrounCheck(CreditRequest, amount) {
+            this.check = function () {
+                // sprawdzenie creditRequest
+                return true // jakaś logika
+            }
+        }
+
+        function RiskCehck(CreditRequest, amount) {
+            this.check = function () {
+                return true // jakaś logika
+            }
+        }
+
+
+        // FASADA
+        CreditRequest.prototype.applyFor = function (amount) {
+            let result = 'approved'
+            let risckCheck = new RiskCehck(this.data, amount)
+            let backgrounCheck = new BackgrounCheck(this.data, amount)
+
+            if (!risckCheck.check()) result = 'not approved'
+            if (!backgrounCheck.check()) result = 'not approved'
+
+            return result
+        }
+
+        const person = {
+            name: 'Karol',
+            salary: 5000, 
+            documents: []
+        }
+
+        let creditRequest = new CreditRequest(person)
+        console.log(creditRequest.applyFor(250000));
+    </script>
+</body>
+
+</html>

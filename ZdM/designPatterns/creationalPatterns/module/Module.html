@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!--  trzbea podać TYPE -->
+    <script type="module" src="./es6module1.js"></script>
+    
+    <script type='module'>
+        import * as myModule from "./es6module1.js"  //  importujemy 
+        myModule.foo()
+
+        console.log(info); // zemina prywatna 
+        console.log(myModule.ifno); // undefined
+        
+        /*
+        moduł jest samodzielną jednostką kodu zwykle odpowiedzialna za pojedynczą funkcjolaniś Programu. Wiele modułó może komunikować sie ze soba wykorzystująć udostępnione publiczne metody oraz zmienne
+
+        Prywatne funckje oraz zmienne mogą być wyłącznie użwyanie za pośrednictwem publicznego API moduelu
+
+        Tworzy się go z wykorzystaniem funckji natychmiastowej zwracjącej obiket z piblicznym API.
+        Prywane API dostepne jest wyłączenie publicznu API dizeki dokmnięciu (closure)
+        */
+    </script>
+</body>
+
+</html>

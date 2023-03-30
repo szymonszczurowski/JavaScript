@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const Module = (function(globalObj){
+            let privData = 10 //prywatna zmienna
+
+            return { // interfejs publicznych metod - API
+                getData: function(){
+                    return privData
+                },
+                setData: function(data){
+                    privData = data
+                }
+
+
+            }
+        })(window) // "window" jest przekazywany jako argument tylko po to, aby "globalObj" odnosił się do obiektu globalnego, który może różnić się w zależności od kontekstu wywołania. Można by było przekazać każdy inny obiekt, który ma być dostępny w funkcji Module.
+
+        console.log(Module.getData());
+        Module.setData(7)
+        console.log(Module.getData());
+
+
+        // LUB za pomoą REVALING MODULE PATTERN
+
+        const module = (function(globalObj){
+            let privData = 10
+
+            function getPrivData(){
+                return privData
+            }
+
+            function setPrivData(data){
+                privData = data
+            }
+
+            return{ // za pomoćą refernecji
+                getData: getPrivData,
+                setData: setPrivData
+            }
+        })(window)
+    </script>
+</body>
+</html>

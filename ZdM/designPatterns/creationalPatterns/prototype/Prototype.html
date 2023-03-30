@@ -46,6 +46,7 @@
         // dziedziczenie wszystkich funckji z prototypu sklep
         Pharmacy.prototype = Object.create(Shop.prototype)
         Pharmacy.prototype.constructor = Pharmacy // żeby był prawdziwy
+        
         Pharmacy.prototype.processRecipe = function(recipe){
             console.log('do something with recipe');
         }

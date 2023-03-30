@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Klasa ES6 jako Singleton
+        class DBConnection {
+            dbName = "defaultDB";
+            constructor(dbName) {
+                if (DBConnection.exists) {
+                    console.log("DBConnection exists");
+                    return DBConnection.instance;
+                }
+
+                DBConnection.exists = true;
+                DBConnection.instance = this;
+                this.dbName = dbName;
+
+                return this;
+            }
+
+            getFromDB(recordId) {
+                return { id: recordId, data: "...", dbName: this.dbName };
+            }
+        }
+
+        const dbConection = new DBConnection("companies");
+        dbConection.getFromDB(1); // {id: 1, data: "...", dbName: "companies"}
+        const dbConection2 = new DBConnection("companies 23423"); // DBConnection exists
+        dbConection2.getFromDB(1); // {id: 1, data: "...", dbName: "companies"}
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Jest to wzorzec ograniczający stworzenie tylko jeden instacji obiektu. Raz stworzona instancja już zawsze będzie zwracana jako refernecja np. przy próbie stworzenia kolejnej.
+
+        Wykorzystywane przy:
+        -obiektach konfigruacyjnych, będących zbiorem podstawowoych danych dla całej aplikacji 
+        -połączeniach np. z bazą danych, zwykle jedno jest wystarcające 
+        -zapisywanie logów z aplikacji, jedna instancja gwarantuje brak duplikatów komunikatów 
+        */
+
+        // WYKORZYSTANIE Z FUNKCJĄ NATYCHMIASTOWĄ
+
+        let Singleton = (function () {
+            let instance = null
+            let privLanguage = 'en'
+
+            function Configuration() {
+                this.getLanguage = function () {
+                    return privLanguage
+                }
+
+                this.setLanguage = function (lang) {
+                    privLanguage = lang
+                }
+            }
+
+            return {
+                getInstance: function () {
+                    if (!instance) {
+                        instance = new Configuration()
+                    }
+                    return instance
+                }
+            }
+        })()
+
+
+        console.log(Singleton.getInstance().getLanguage());
+        console.log('===================');
+        // lub krócej
+        const config = Singleton.getInstance()
+        config.setLanguage('pl')
+        console.log(config.getLanguage());
+
+
+
+        console.log('===================');
+        const config2 = Singleton.getInstance()
+        console.log(config2.getLanguage());
+
+        console.log('===================');
+        console.log(Singleton);
+        console.log(config);
+        console.log(config2);
+
+        //LOGGER
+
+
+    </script>
+</body>
+
+</html>

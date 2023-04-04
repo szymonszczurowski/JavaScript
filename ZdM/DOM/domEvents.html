@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body id="body">
+
+    <p id="p">
+    <form action="" id="form">
+        <!-- (1) -->
+        <!-- <input type="text" id="input" onclick="inputClicked(event)"> -->
+        <!-- (2) -->
+        <input type="text" id="input" ">
+        </form>
+    </p>
+
+    <script>
+        // window.onload = function() {}
+        // window.addEventListener(" load", function(){
+
+
+                    // inputClicked = (event) => {
+            // window.onload=function () { // (1)
+            // console.log(event);
+            // console.log(" input kliknięty"); // }
+
+            // (2)
+            const input = document.getElementById('input')
+            input.onclick = inputClicked = (event) => {
+                console.log(event);
+                console.log("input kliknięty");
+            }
+
+
+            const body = document.getElementById('body')
+
+            // const onKeyDown = (event) => {
+            // console.log(event);
+            // console.log("klawisz kliknięty " + event.key);
+            // }
+            // body.addEventListener('keydown', onKeyDown)
+
+            // const mousemove = (event) => {
+            //     console.log(event);
+            //     console.log("mousemove");
+            // }
+            // body.addEventListener('mousemove', mousemove)
+
+            const click = (event) => {
+                console.log(event);
+                console.log("click", event.target);
+
+                body.removeEventListener('click', click, true)
+                // 3 argument useCapture
+            }
+            body.addEventListener('click', click, true)
+
+        // }) 
+
+
+      
+
+
+    </script>
+</body>
+
+</html>

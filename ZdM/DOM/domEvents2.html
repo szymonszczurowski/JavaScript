@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body * {
+            margin: 10px;
+            border: 2px solid red;
+        }
+
+        input {width: 40px;}
+    </style>
+</head>
+<body>
+    <p id="p">
+        <form action="" id="form"> Forumularz
+           input: <input type="text" id="input" ">
+        </form>
+    </p>
+    <script>
+        for(let el of document.querySelectorAll('*')){
+            // el.addEventListener('click', e => console.log("Capturing: " + el.tagName), true) // rzadko urzywane 
+
+
+            // urzywane jest teraz bubbling domyśłnie i jako trzeci argument domyślnie jest false
+            el.addEventListener('click', e => {
+                console.log("Bubling: " + el.tagName)
+                e.stopPropagation()
+        })
+        }
+    </script>
+</body>
+</html>

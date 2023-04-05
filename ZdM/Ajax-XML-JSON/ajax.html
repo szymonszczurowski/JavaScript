@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // słuzy do pobiernia asynchronicznie danych z internetu. 
+
+        // poglądowy przykład lokalnie
+        const xhrObject = new XMLHttpRequest();
+        xhrObject.onreadystatechange = () => {
+            if(xhrObject.readyState === 4){ // sprawdzanie aktulanego statn obiektu // w tym wypadku done 
+                if(xhrObject.status === 200 || xhrObject.status === 304){ // status http żądania
+                    console.log(xhrObject.responseText);
+                    console.log(xhrObject.responseXML);
+                }
+            }
+        }
+
+        xhrObject.open("Get", "test.xml?name=Ola&city=Gd&postalCode=0000", true) //true czyli asynchorocznie 
+        xhrObject.send()
+
+        // xhrObject.open("Post", "test.xml", true) //true czyli asynchorocznie 
+        // xhrObject.setRequestHeader("Content-type", "application/x-www-form-urlecoded")
+        // xhrObject.send("name=Ola&city=Gd&postalCode=0000")
+    </script>
+</body>
+</html>

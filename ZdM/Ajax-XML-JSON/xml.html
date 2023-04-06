@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // słuzy do pobiernia asynchronicznie danych z internetu. 
+        // poglądowy przykład lokalnie
+        const xhrObject = new XMLHttpRequest();
+        xhrObject.onreadystatechange = () => {
+            if(xhrObject.readyState === 4){ // sprawdzanie aktulanego statn obiektu // w tym wypadku done 
+                if(xhrObject.status === 200 || xhrObject.status === 304){ // status http żądania
+                    console.log(xhrObject.responseText);
+                    
+                    parseXml(xhrObject.responseText)
+                }
+            }
+        }
+
+        xhrObject.open("Get", "test.xml", true) //true czyli asynchorocznie 
+        xhrObject.send()
+
+        const parseXml = (xmlStr) => {
+            const domParser = new DOMParser()
+            const xmlObj = domParser.parseFromString(xmlStr, "application/xml")
+            if(xmlObj.documentElement.nodeName === "parsererror"){
+                console.log('Błąd polku XML');
+            }else{
+                showData(xmlObj);
+            }
+        }
+
+        const showData = (xmlObj) => {
+            const booksCollection = xmlObj.getElementsByTagName('book')
+            console.log(booksCollection);
+            const book1 = booksCollection[0]
+            console.log(book1);
+            console.log(book1.childNodes); // to poazuje równiez białe znaki
+            console.log(book1.getElementsByTagName('title')[0].innerHTML);
+            console.log(book1.getElementsByTagName('title')[0].childNodes);
+            console.log(book1.getElementsByTagName('title')[0].childNodes[0].nodeValue);
+            console.log(book1.getAttribute('lang'));
+            console.log(book1.attributes['lang']);
+            console.log(book1.attributes['lang'].nodeValue);
+
+            book1.setAttribute('id', 'book1')
+            console.log(book1.getAttribute('id'));
+
+            const serializer = new XMLSerializer()
+            const xmlStr = serializer.serializeToString(xmlObj)
+            console.log(xmlStr);
+        }
+
+
+    </script>
+</body>
+</html>

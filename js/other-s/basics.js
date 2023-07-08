@@ -2,6 +2,7 @@ console.log('cześć') // wylogowanie słowa w konsoli
 console.log('cześć2')
 console.log('cześć3')
 console.log('cześć4')
+console.log('hej');
 
 //Można użuwać średników, ale nie trzeba
 
@@ -27,3 +28,5 @@ console.log(test)
 const animal = 'pies'
 const animalName = 'Roberto'
 console.log(`Cześć, jestem ${name} i moim ulubionym imieniem jest ${animalName}`)
+
+
